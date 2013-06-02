@@ -98,3 +98,49 @@ div {
 	}
 }
 
+.filter {
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+		padding: 5px 10px;
+		margin: 0px;
+		color: #333;
+		font-size: 13px;
+		text-decoration: none;
+		&.active, &:hover {
+			.rounded(10px);
+			background: @mainColor;
+			color: #fff;
+		}
+	}
+}
+
+#boxes {
+	.box {
+		background: #fff;
+		margin-bottom: 10px;
+		.rounded(13px);
+		.drop-shadow(1px, 1px, 5px)
+	}
+	h3, h4{
+		margin-left: 10px;
+	}
+	p {
+		padding: 10px;
+	}
+	header {
+		position: relative;
+	}
+	span {
+		position: absolute;
+		top: 5px;
+		right: 15px;
+	}
+}
+
