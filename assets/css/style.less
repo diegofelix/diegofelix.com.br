@@ -12,6 +12,28 @@
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+
 body {
 	background: #f9f9f9;
 	font-family: @mainFont;
@@ -91,6 +113,7 @@ body {
  */
 div {
 	section.container {
+		padding: 100px 0;
 		h2 {
 			font-size: 26px;
 			font-weight: 400;
@@ -98,49 +121,92 @@ div {
 	}
 }
 
-.filter {
-	ul {
-		list-style: none;
-		padding: 0;
-	}
-	li {
-		display: inline-block;
-	}
-	a {
-		display: block;
-		padding: 5px 10px;
-		margin: 0px;
-		color: #333;
-		font-size: 13px;
-		text-decoration: none;
-		&.active, &:hover {
-			.rounded(10px);
-			background: @mainColor;
-			color: #fff;
+#boxes {
+
+	.box-studies {
+		.period {
+			background: #FF57FF;
 		}
 	}
-}
 
-#boxes {
 	.box {
+		padding: 1px;
 		background: #fff;
-		margin-bottom: 10px;
+		margin-bottom: 30px;
 		.rounded(13px);
 		.drop-shadow(1px, 1px, 5px)
 	}
-	h3, h4{
+	h3, h4 {
 		margin-left: 10px;
+	}
+	h3 {
+		font-weight: 300;
+		font-size: 26px;
+	}
+	h4 {
+		font-size: 18px;
+		font-weight: 400;
+		color: #333;
+		margin-bottom: 0;
 	}
 	p {
 		padding: 10px;
+		font-size: 16px;
+		color: #777;
+		margin-top: 0;
+		line-height: 1.4em;
 	}
 	header {
 		position: relative;
 	}
 	span {
 		position: absolute;
-		top: 5px;
+		top: 0;
 		right: 15px;
+		background: @mainColor;
+		color: #fff;
+		font-size: 14px;
+		padding: 7px;
+		.rounded(3px);
 	}
 }
 
+#skills {
+	background: @mainColor;
+	color: #fff;
+	ul {
+		padding: 0;
+		list-style: none;
+		color: #333;
+	}
+	li {
+		
+	}
+}
+#skill-completion {
+	li {
+		background: #ddd;
+		.rounded(20px);
+	}
+	.completion {
+		display: block;
+	}
+
+	.completion-60 { width: 60%; }
+	.completion-80 { width: 80%; }
+	.completion-90 { width: 90%; }
+
+}
+
+#tools li,
+#skill-completion .completion {
+	margin: 10px 0;
+	padding: 12px 20px;
+	.rounded(20px);
+	background: #fff;
+}
+
+#tools li {
+	float: left;
+	margin: 0 10px 10px 0;
+}
