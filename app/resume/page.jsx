@@ -32,23 +32,15 @@ import { motion } from "framer-motion";
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec nulla sed libero ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies.",
+    "I'm a software developer with over a decade of experience, specializing in backend development with PHP and Laravel. I enjoy solving complex problems and building high-performance solutions. Outside of work, I'm a big fan of Street Fighter, which, much like coding, requires strategy and adaptability — skills I bring to both.",
   info: [
     {
       fieldName: "Name",
       fieldValue: "Diego Felix",
     },
     {
-      fieldName: "Phone",
-      fieldValue: "(11) 12312321",
-    },
-    {
       fieldName: "Experience",
-      fieldValue: "17 years",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "diegofelix_",
+      fieldValue: "15 years",
     },
     {
       fieldName: "Nationality",
@@ -57,10 +49,6 @@ const about = {
     {
       fieldName: "Email",
       fieldValue: "contato@diegofelix.com.br",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Unavailable",
     },
     {
       fieldName: "Languages",
@@ -74,7 +62,7 @@ const experience = {
   icon: "/assets/resume/bagde.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec nulla sed libero ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies.",
+    "This section highlights my professional journey, showcasing key roles and projects that have shaped my skills. From backend engineering to leading technical teams, each experience has deepened my expertise in delivering high-performance solutions.",
   items: [
     {
       company: "Leroy Merlin",
@@ -104,10 +92,20 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec nulla sed libero ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies. Nullam sit amet turpis nec nulla ultricies ultricies.",
+    "My education has laid the groundwork for my career in software development, complemented by continuous learning in the latest technologies and methodologies.",
   items: [
     {
-      instituition: "Impacta Faculdade de Tecnologia (FIT)",
+      instituition: "Strides",
+      degree: "Tech Manager",
+      duration: "2024",
+    },
+    {
+      instituition: "MongoDB University",
+      degree: "MongoDB for Developers",
+      duration: "2017",
+    },
+    {
+      instituition: "Impacta - College of Technology (FIT)",
       degree: "Systems Analysis",
       duration: "2009 - 2011",
     },
@@ -123,7 +121,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Here is a short list of the main technologies I work with daily, and that allow me to develop high-quality projects.",
+    "Here is a list of the main technologies I work with regularly, enabling me to deliver high-quality projects. Additionally, I'm expanding my knowledge in some modern frontend frameworks.",
   skillList: [
     {
       icon: <SiPhp />,
@@ -132,6 +130,14 @@ const skills = {
     {
       icon: <SiLaravel />,
       name: "laravel",
+    },
+    {
+      icon: <SiElasticsearch />,
+      name: "elasticsearch",
+    },
+    {
+      icon: <SiMongodb />,
+      name: "mongodb",
     },
     {
       icon: <FaJs />,
@@ -145,7 +151,6 @@ const skills = {
       icon: <FaCss3 />,
       name: "css 3",
     },
-
     {
       icon: <FaReact />,
       name: "react",
@@ -153,18 +158,6 @@ const skills = {
     {
       icon: <SiNextdotjs />,
       name: "nextjs",
-    },
-    {
-      icon: <SiVuedotjs />,
-      name: "vuejs",
-    },
-    {
-      icon: <SiElasticsearch />,
-      name: "elasticsearch",
-    },
-    {
-      icon: <SiMongodb />,
-      name: "mongodb",
     },
     {
       icon: <SiMysql />,

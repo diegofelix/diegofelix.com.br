@@ -16,8 +16,12 @@ const Home = () => {
               Hello I'm <br /> <span className="text-accent">Diego Felix</span>
             </h1>
             <p className="max-w-[500x] mb-9 text-white/80">
-              I have been working we web developer since 2009. I have a lot of
-              experience and I am currently a Tech Leader at Leroy Merlin
+              I’ve been a web developer since 2009, specializing in building
+              scalable, high-performance applications. Currently, I’m a Tech
+              Leader at Leroy Merlin, leading teams to deliver innovative
+              solutions. My core strength is in PHP and Laravel, and I’m now
+              expanding my knowledge in frontend frameworks like Next.js and
+              React.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <div className="mb-8 xl:mb-0">

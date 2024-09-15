@@ -7,30 +7,30 @@ import { Description } from "@radix-ui/react-dialog";
 const services = [
   {
     num: "01",
-    title: "Tech Leader",
+    title: "Tech Leadership",
     description:
-      "I have experience leading software development teams, focusing on quality and delivering value.",
+      "I have extensive experience leading software development teams, focusing on delivering high-quality, scalable solutions that meet business goals.",
     href: "",
   },
   {
     num: "02",
     title: "Software Engineering",
     description:
-      "I have worked for years as a developer and I know the way to deliver quality software.",
+      "With over a decade of experience in software development, I excel in building robust, maintainable, and scalable software solutions tailored to meet specific needs.",
     href: "",
   },
   {
     num: "03",
-    title: "Consulting",
+    title: "API & Backend Development",
     description:
-      "I can help you improve the quality of your software and deliver value to your customers.",
+      "Specializing in PHP and Laravel, I build efficient, scalable APIs and backend systems that power modern applications, ensuring performance and security.",
     href: "",
   },
   {
     num: "04",
-    title: "Projects",
+    title: "Custom Projects",
     description:
-      "I have worked on several projects, from small to large, and I have experience in all stages of software development.",
+      "From small businesses to large enterprises, I have led and contributed to a variety of software projects across different industries, managing all stages from conception to deployment.",
     href: "",
   },
 ];
