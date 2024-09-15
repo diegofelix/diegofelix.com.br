@@ -22,62 +22,66 @@ import WorkSliderButtons from "@/components/WorkSliderButtons";
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    title: "project 1",
+    category: "Tech Leader",
+    title: "Leroy Merlin",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel lacinia.",
+      "Led and contributed to major projects such as click-and-collect, marketplace integration, search engine optimization, discount engine, and retail media initiatives. Currently, I'm a Tech Leader guiding teams towards high-quality software delivery.",
     stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "Css 3",
-      },
-      {
-        name: "Javascript",
-      },
+      { name: "PHP" },
+      { name: "Laravel" },
+      { name: "Elasticsearch" },
+      { name: "MongoDB" },
     ],
     image: "/assets/work/thumb1.png",
-    live: "",
+    live: "https://www.leroymerlin.com.br",
     github: "",
   },
   {
     num: "02",
-    category: "fullstack",
-    title: "project 2",
+    category: "Fullstack",
+    title: "Makrosystems - Unico",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel lacinia.",
+      "Developed two key projects: the main website and a fully customized dashboard for clients and security teams, providing intuitive management tools.",
     stack: [
-      {
-        name: "Next.js",
-      },
-      {
-        name: "Tailwindcss",
-      },
-      {
-        name: "Node.js",
-      },
+      { name: "PHP" },
+      { name: "Laravel" },
+      { name: "Vue.js" },
+      { name: "MySQL" },
     ],
     image: "/assets/work/thumb2.png",
-    live: "",
+    live: "https://makrosystems.com.br",
     github: "",
   },
   {
     num: "03",
-    category: "frontend",
-    title: "project 3",
+    category: "Fullstack",
+    title: "Bradent",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel lacinia.",
+      "Built a comprehensive appointment management system for dental clinics, including patient records, scheduling, and treatment history management.",
     stack: [
-      {
-        name: "Next.js",
-      },
-      {
-        name: "Tailwindcss",
-      },
+      { name: "PHP" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "Javascript (jQuery)" },
     ],
     image: "/assets/work/thumb3.png",
-    live: "",
+    live: "http://bradent.com.br/",
+    github: "",
+  },
+  {
+    num: "04",
+    category: "Fullstack",
+    title: "Telefonica - Call Center System",
+    description:
+      "Developed a comprehensive call center system used by customer service teams. The system includes call management, call history tracking, and agent performance monitoring, optimizing workflow and enhancing service efficiency.",
+    stack: [
+      { name: "PHP" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "SQL Server" },
+    ],
+    image: "/assets/work/thumb4.png",
+    live: "https://www.vivo.com.br/",
     github: "",
   },
 ];
@@ -106,9 +110,15 @@ const Work = () => {
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
-              </h2>
+              <div>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {project.title}
+                </h2>
+                <h3 className="text-sm py-1 font-bold leading-none text-white/70 group-hover:text-accent transition-all duration-500 uppercase">
+                  {project.category}
+                </h3>
+              </div>
+
               <p className="text-white/60">{project.description}</p>
               <ul className="flex gap-4">
                 {project.stack.map((item, index) => {
@@ -135,18 +145,20 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github && (
+                  <Link href={project.github}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

@@ -19,11 +19,6 @@ import { motion } from "framer-motion";
 
 const info = [
   {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "+1 234 567 890",
-  },
-  {
     icon: <FaEnvelope />,
     title: "Email",
     description: "contato@diegofelix.com.br",
@@ -51,28 +46,15 @@ const Contact = () => {
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
-                magni, optio sit error fugit asperiores.
+                Feel free to reach out if you have any questions or project
+                ideas. I’m always open to discussing new opportunities and
+                collaborations!
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstname" placeholder="First name" />
                 <Input type="lastname" placeholder="Last name" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
               </div>
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                    <SelectItem value="mst">Logo Design</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <Input type="email" placeholder="Email address" />
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
