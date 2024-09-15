@@ -7,30 +7,30 @@ import { Description } from "@radix-ui/react-dialog";
 const services = [
   {
     num: "01",
-    title: "Web Development",
+    title: "Tech Leader",
     description:
-      "I like to build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+      "I have experience leading software development teams, focusing on quality and delivering value.",
     href: "",
   },
   {
     num: "02",
-    title: "UI/UX Design",
+    title: "Software Engineering",
     description:
-      "I like to build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+      "I have worked for years as a developer and I know the way to deliver quality software.",
     href: "",
   },
   {
     num: "03",
-    title: "Logo Design",
+    title: "Consulting",
     description:
-      "I like to build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+      "I can help you improve the quality of your software and deliver value to your customers.",
     href: "",
   },
   {
     num: "04",
-    title: "SEO",
+    title: "Projects",
     description:
-      "I like to build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+      "I have worked on several projects, from small to large, and I have experience in all stages of software development.",
     href: "",
   },
 ];
