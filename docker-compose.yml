@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: new-portfolio-frontend
+    build:
+      context: .docker/build/app
+      dockerfile: Dockerfile
+    command: npm run dev
+    volumes:
+      - .:/var/www/
+    ports:
+      - "3000:3000"
