@@ -25,7 +25,8 @@ const Photo = () => {
           <Image
             src="/assets/profile-without-background.png"
             alt="Diego Felix"
-            quality={100}
+            quality={80}
+            sizes="50vw"
             fill
             className="object-contain rounded-full"
           />
@@ -45,7 +46,7 @@ const Photo = () => {
             stroke="#00ff99"
             strokeWidth="4"
             strokeLinecap="round"
-            strokeLineJoin="round"
+            strokeLinejoin="round"
             initial={{ strokeDasharray: "24 10 0 0" }}
             animate={{
               strokeDasharray: ["15 120 25 25", "16 25 93 72", "4 250 22 22"],
