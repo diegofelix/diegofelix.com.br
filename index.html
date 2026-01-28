@@ -1,354 +1,335 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>:: Diego Felix</title>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,300,100' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet/less" href="assets/css/style.less">
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refined Backend Portfolio | Pixel Terminal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#fdfdfd",
+              "background-dark": "#0f0f0f",
+              "code-keyword": "#d73a49",
+              "code-string": "#032f62",
+              "code-ext-md": "#005cc5",
+              "code-ext-go": "#00add8",
+              "code-ext-rs": "#dea584",
+            },
+            fontFamily: {
+              display: ["Instrument Serif", "serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            cursor: crosshair;
+        }
+        .pixel-border {
+            box-shadow: 
+                0 -2px 0 0 black,
+                0 2px 0 0 black,
+                -2px 0 0 0 black,
+                2px 0 0 0 black;
+        }
+        .nav-link:hover .pixel-arrow {
+            visibility: visible;
+        }
+        .pixel-arrow {
+            visibility: hidden;
+            width: 8px;
+            height: 8px;
+            background-color: theme('colors.primary');
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%, 0% 70%, 40% 50%, 0% 30%);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(37, 99, 235, 0.05);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 50;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563eb;
+        }
+    </style>
 </head>
-<body>
-
-	<header id="header">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div id="photo" class="span4">
-
-					<figure>
-						<img src="assets/img/diegofelix.jpg" alt="Foto de Diego Felix">
-					</figure>
-
-				</div>
-
-				<div id="about" class="span8">
-
-					<h1>Diego Felix</h1>
-					<h2>Web Developer</h2>
-
-					<div class="description">
-						<p>
-							Olá pessoal, sejam bem vindos. Sou programador há mais de 4 anos. Formado em Análise e Desenvolvimento de Sistemas pela Faculdade Impacta de Tecnologia. Sintam-se a vontade para conhecer meus trabalhos e habilidades, mais abaixo estarão todas as formas de entrar em contato comigo!
-						</p>
-					</div>
-
-				</div><!-- #about -->
-
-			</div><!-- .row -->
-
-		</div>
-
-		<div id="nav">
-
-			<div class="container">
-
-				<!-- main menu -->
-				<nav class="row">
-					
-					<div class="span8 offset4">
-
-						<ul>
-							<li><a class="active" href="#curriculum">Curriculum</a></li>
-							<li><a href="#skills">Habilidades</a></li>
-							<li><a href="#portfolio">Portfolio</a></li>
-							<li><a href="#contact">Contato</a></li>
-						</ul>
-
-					</div>
-
-				</nav><!-- main menu -->
-
-			</div>
-
-		</div>
-
-	</header>
-	
-	<div id="curriculum">
-
-		<section class="container">
-
-			<h2>Curriculum</h2>
-
-			<div id="boxes">
-
-				<div class="row">
-
-					<!-- each box below has a companie -->
-					<div class="span6 box-companies">
-							
-						<div class="box">
-							<header>
-								<h3>Makrosystems</h3>
-								<span class="period">2012 - Atual</span>
-							</header>
-							<section>
-								<h4 class="title">Web Developer</h4>
-								<p>
-									Makrosystems é uma empresa de segurança da informação que presta serviços para um dos maiores bancos do Brasil. Meu trabalho é cuidar de toda a parte web e interface entre a nossa empresa e os bancos. O sistema gera estatísticas, feedback, relatórios e gráficos, tanto de desempenho como de feedback.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>Metacore</h3>
-								<span class="period">2010 - 2012</span>
-							</header>
-							<section>
-								<h4 class="title">Web/Game Developer</h4>
-								<p>
-									Metacore foi um studio de Games nascido em 2010. Cheguei para cuidar de toda a área de web da empresa. Em 2012 a demanda por games era maior que a de web, então comecei a desenvolver jogos, infelizmente no final de 2012 a empresa fechou por falta de recursos.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>Telefônica</h3>
-								<span class="period">2009 - 2010</span>
-							</header>
-							<section>
-								<h4 class="title">Web Developer</h4>
-								<p>
-									Telefônica ( Vivo ) é uma das maiores empresas de telefonia de São Paulo. Lá eu era responsável por desenvolver os sistemas auxiliares da empresa, dentre eles estão, sistemas de call center e e-learning.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>Telefônica</h3>
-								<span class="period">2007 - 2009</span>
-							</header>
-							<section>
-								<h4 class="title">Técnico de Suporte</h4>
-								<p>
-									Trabalhei como técnico de Suporte pela Atento, prestando serviços para a telefônica, comecei atendendo clientes, felizmente após 5 meses fui promovido para uma ilha de backoffice onde trabalhava diretamente com os técnicos da telefônica.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>Floranet</h3>
-								<span class="period">2005 - 2007</span>
-							</header>
-							<section>
-								<h4 class="title">Auxiliar Técnico de Suporte</h4>
-								<p>
-									Floranet é uma prestadora de serviços em Holambra. Meu primeiro trabalho registrado, onde aprendi muita coisa e onde peguei gosto por desenvolvimento web, lá eu cuidava de mais de 60 equipamentos de informática, em 2007 ajudei no desenvolvimento do site, onde peguei paixão pela área.
-								</p>
-							</section>
-						</div>
-
-					</div><!-- box-companies -->
-
-					<div class="span6 box-studies">
-						
-						<div class="box">
-							<header>
-								<h3>Mongo User Group</h3>
-								<span class="period">2013</span>
-							</header>
-							<section>
-								<h4 class="title">Encontro MUG-SP no Google</h4>
-								<p>
-									Encontro de Usuários e interessados em MongoDB. Palestras sobre o evento MUG-SP, Aggregation Framework, Geospatial Indexes, Performance e cases de sucesso. Ao fim, algumas pessoas falaram sobre sua experiência com Mongo.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>Faculdade Impacta</h3>
-								<span class="period">2009 - 2010</span>
-							</header>
-							<section>
-								<h4 class="title">Análise e Desenvolvimento de Sistemas</h4>
-								<p>
-									Assim que eu entrei para a área de desenvolvimento da Telefônica eu comecei a faculdade. Depois que apresentamos nosso TCC fomos chamados para palestrar novamente na semana integrada da faculdade, o que foi uma honra. Nosso trabalho foi uma espécie de E-commerce, porém para encomendas de produtos, por não se tratar de venda nem de preços, tivemos que fazer todo o desenhvolvimento do zero.
-								</p>
-							</section>
-						</div>
-
-						<div class="box">
-							<header>
-								<h3>MICROCAMP</h3>
-								<span class="period">2004 - 2005</span>
-							</header>
-							<section>
-								<h4 class="title">Hardware</h4>
-								<p>
-									Sempre tive mania de fuçar em tudo, quando tive meu primeiro computador tive a certeza que era naquilo ali que passaria o resto de minha vida, na época só estudava, então consegui uma bolsa de desconto para fazer o curso na Microcamp. Aprendi um pouco de tudo, o suficiente pra conseguir meu primeiro emprego na área.
-								</p>
-							</section>
-						</div>
-
-					</div><!-- box-studies -->
-				
-				</div><!-- .row -->
-
-			</div><!-- #boxes -->
-
-		</section><!-- .container -->
-
-	</div><!-- #curriculum -->
-
-	<div id="skills">
-
-		<section class="container">
-
-			<div class="row">
-
-				<div class="span6 skills">
-
-					<h2>Habilidades</h2>
-
-					<!-- grafico de coluna mostrando as minhas habilidades -->
-					<div class="charts">
-
-						<ul id="skill-completion">
-							<li><span class="completion completion-80">HTML & CSS - <strong>80%</strong></span></li>
-							<li><span class="completion completion-80">JQUERY - <strong>80%</strong></span></li>
-							<li><span class="completion completion-90">PHP - <strong>90%</strong></span></li>
-							<li><span class="completion completion-80">LARAVEL - <strong>80%</strong></span></li>
-							<li><span class="completion completion-80">MYSQL - <strong>80%</strong></span></li>
-							<li><span class="completion completion-60">DESIGN - <strong>60%</strong></span></li>
-						</ul>
-
-					</div><!-- grafico de coluna mostrando as minhas habilidades -->
-
-				</div>
-
-				<div class="span6 tools">
-
-					<h2>Eu uso</h2>
-
-					<!-- abaixo estão listadas as minhas principais ferramentas -->
-					<div id="tools">
-
-						<ul>
-							<li>HTML5</li>
-							<li>PHP</li>
-							<li>BOOTSTRAP</li>
-							<li>JQUERY</li>
-							<li>LARAVEL</li>
-							<li>FIREWORKS</li>
-							<li>GIT</li>
-							<li>SUBLIME TEXT 2</li>
-							<li>CSS3</li>
-							<li>MYSQL</li>
-						</ul>
-
-					</div><!-- minhas principais ferramentas -->
-
-				</div><!-- .tools -->
-
-			</div><!-- .row -->
-
-		</section><!-- .container -->
-
-	</div><!-- #skills -->
-
-	<div id="portfolio">
-
-		<section class="container">
-
-			<h2>Portfolio</h2>
-
-			<div class="row">
-
-				<div id="carousel">
-
-					<a class="carousel-back"></a>
-					<ul class="works">
-
-						<li class="work active">
-							<figure>
-								<img src="assets/img/works/1.jpg" alt="Media UP">
-							</figure>
-							<section class="work-description">
-								<h3>Media UP</h3>
-								<p>MediaUP é uma empresa de Marketing digital com foco principal no Google. Nesse trabalho realizei o design, criação do logotipo, back-end e front-end, gostei muito do resultado final.</p>
-							</section>
-						</li>
-
-						<li class="work">
-							<figure>
-								<img src="assets/img/works/2.jpg" alt="Fresh From Brasil">
-							</figure>
-							<section class="work-description">
-								<h3>Fresh From Brasil</h3>
-								<p>MediaUP é uma empresa de Marketing digital com foco principal no Google. Nesse trabalho realizei o design, criação do logotipo, back-end e front-end, gostei muito do resultado final.</p>
-							</section>
-						</li>
-
-					</ul><!-- .works -->
-					<a class="carousel-foward"></a>
-
-				</div><!-- #carousel -->
-
-			</div><!-- row -->
-
-		</section><!-- container -->
-
-	</div><!-- #portfolio -->
-
-	<div id="contact">
-
-		<section class="container">
-
-			<h2>Eu costumo aparecer por aqui:</h2>
-
-			<div class="row">
-
-				<div class="span4">
-
-					<a href="http://www.twitter.com/diegofelix" class="twitter">
-						<strong>@diegofelix<strong><br>
-						Me siga no Twitter
-					</a>
-
-				</div>
-
-				<div class="span4">
-
-					<a href="http://www.twitter.com/diegofelix" class="twitter">
-						Me adicione no <br>
-						<strong>Google Plus<strong>
-					</a>
-
-				</div>
-
-				<div class="span4">
-
-					<a href="http://www.twitter.com/diegofelix" class="twitter">
-						<strong>Linkedin<strong><br>
-						Veja meu perfil
-					</a>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-	</div>
-
-		
-
-	</section>
-	
-	<footer>
-	</footer>
-
-	<script src="assets/js/less.min.js" type="text/javascript"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js">
-</body>
-</html>
+<body class="bg-background-light text-slate-800 transition-colors duration-200">
+<div class="flex min-h-screen">
+<aside class="w-72 border-r border-slate-200 p-8 hidden lg:block sticky top-0 h-screen bg-slate-50/50">
+<div class="mb-12">
+<h1 class="text-primary font-bold text-xs tracking-widest uppercase mb-1">SYSTEM_ROOT</h1>
+<div class="h-[2px] w-12 bg-primary"></div>
+</div>
+<nav class="space-y-10">
+<div>
+<h2 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">01. Navigation</h2>
+<ul class="space-y-3 text-sm">
+<li>
+<a class="nav-link text-primary font-bold flex items-center group" href="#">
+<div class="pixel-arrow mr-3 !visible"></div>
+<span>HOME_BASE</span>
+</a>
+</li>
+<li>
+<a class="nav-link hover:text-primary transition-colors flex items-center group" href="#">
+<div class="pixel-arrow mr-3"></div>
+<span class="opacity-70 group-hover:opacity-100">DEV_LOGS</span>
+</a>
+</li>
+<li>
+<a class="nav-link hover:text-primary transition-colors flex items-center group" href="#">
+<div class="pixel-arrow mr-3"></div>
+<span class="opacity-70 group-hover:opacity-100">PROC_LIST</span>
+</a>
+</li>
+<li>
+<a class="nav-link hover:text-primary transition-colors flex items-center group" href="#">
+<div class="pixel-arrow mr-3"></div>
+<span class="opacity-70 group-hover:opacity-100">NET_SHELL</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-4 bg-white border border-slate-200">
+<h2 class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-3">Live_Metrics</h2>
+<div class="space-y-2 font-mono text-[10px]">
+<div class="flex justify-between items-center">
+<span class="text-slate-500">CPU_LOAD:</span>
+<span class="text-primary">12.4%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500">MEM_USED:</span>
+<span class="text-primary">4.2GiB</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500">NET_THROUGH:</span>
+<span class="text-green-600">842MB/s</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500">LATENCY:</span>
+<span class="text-primary">0.4ms</span>
+</div>
+<div class="w-full bg-slate-100 h-1 mt-3">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">02. Stack</h2>
+<ul class="space-y-2 text-[12px] opacity-70">
+<li class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-2">lan</span> Dist_Systems</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-2">database</span> DB_Arch</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-2">speed</span> Perf_Audit</li>
+</ul>
+</div>
+</nav>
+<div class="absolute bottom-8 left-8 text-[9px] text-slate-400 font-mono">
+<p>LAST_SYNC: 2024.05.24_14:20</p>
+<p>NODE_ID: RIVERS_01</p>
+</div>
+</aside>
+<main class="flex-1 max-w-5xl mx-auto px-6 py-12 lg:px-20 lg:py-24 relative">
+<header class="mb-24 relative border-b border-slate-100 pb-16">
+<div class="flex flex-col md:flex-row items-center md:items-start gap-12">
+<div class="relative group">
+<div class="absolute -inset-1 bg-primary/20 blur-sm group-hover:blur-md transition-all"></div>
+<div class="relative p-1 bg-white border-2 border-slate-900">
+<img alt="Pixelated profile avatar" class="w-32 h-32 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0ZCBL0tuv0Ob6_bvpt7TkjVKDZVp-L_DNXWIZQQSWPmmCjtcp8vEHeF4DtCGdCdnYxCQ0IjZleg3GVi-c_xW8o3nNWTADQCehbq3Yh5bYwf9mncjXYA2bJN3NNDxOfErh4lg-N_GnEVT7Uso6j_HQWHx2K4xLaonIhzPBJwnS8j8Xd65J260w27TkWMdu-H_embANSEMEkFoRQ5ksJrQPfGu6oznbsTwqliYVcs6WpuhPlZ3UfwlC_A425aYOUODdcGGQZb94q6Y"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-white text-[8px] px-1 py-0.5 font-bold">V2.1.0</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="text-[10px] text-primary font-bold uppercase tracking-[0.4em] mb-4">
+                        Senior Systems Architect
+                    </div>
+<h1 class="font-display text-7xl md:text-8xl text-slate-900 mb-6">Alex Rivers.</h1>
+<p class="max-w-xl text-xs leading-loose opacity-70 font-mono">
+                        Building deterministic engines and low-latency data pipelines. Specializing in high-performance backends where every millisecond and byte counts.
+                    </p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+<button class="px-6 py-2 bg-slate-900 text-white text-[10px] font-bold flex items-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm mr-2">terminal</span>
+                            SSH_RESUME
+                        </button>
+<button class="px-6 py-2 border border-slate-900 text-[10px] font-bold hover:bg-slate-50 transition-colors uppercase">
+                            SOURCE_GITHUB
+                        </button>
+</div>
+</div>
+</div>
+</header>
+<section class="mb-24 grid grid-cols-2 md:grid-cols-4 gap-0 border border-slate-200">
+<div class="p-6 border-r border-b md:border-b-0 border-slate-200 hover:bg-slate-50 transition-colors">
+<div class="text-[9px] text-slate-400 uppercase mb-3 tracking-widest">Experience</div>
+<div class="font-bold text-sm">08_YEARS.SYS</div>
+</div>
+<div class="p-6 border-b md:border-b-0 md:border-r border-slate-200 hover:bg-slate-50 transition-colors">
+<div class="text-[9px] text-slate-400 uppercase mb-3 tracking-widest">Connection</div>
+<div class="font-bold text-green-600 flex items-center text-sm">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
+                    ACTIVE
+                </div>
+</div>
+<div class="p-6 border-r border-slate-200 hover:bg-slate-50 transition-colors">
+<div class="text-[9px] text-slate-400 uppercase mb-3 tracking-widest">Origin</div>
+<div class="font-bold uppercase text-sm">LDN/GTM</div>
+</div>
+<div class="p-6 hover:bg-slate-50 transition-colors">
+<div class="text-[9px] text-slate-400 uppercase mb-3 tracking-widest">Capacity</div>
+<div class="font-bold text-sm">LTD_SLOTS</div>
+</div>
+</section>
+<section class="mb-24">
+<div class="flex justify-between items-end mb-6">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary mr-2 text-lg">folder_open</span>
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">/home/alex/recent_logs</h3>
+</div>
+<span class="text-[9px] text-slate-400">Total 48.2kb</span>
+</div>
+<div class="bg-white border border-slate-200 overflow-hidden">
+<div class="bg-slate-50 px-4 py-2 border-b border-slate-200 flex space-x-2">
+<div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+</div>
+<div class="divide-y divide-slate-50 font-mono text-[11px]">
+<div class="grid grid-cols-12 gap-4 p-3 hover:bg-slate-50 group cursor-pointer">
+<div class="col-span-6 flex items-center">
+<span class="text-slate-300 mr-4">-rw-r--r--</span>
+<span class="text-slate-700">optimizing_postgres_indices</span>
+<span class="text-code-ext-md">.md</span>
+</div>
+<div class="col-span-3 text-slate-400">12.4kb</div>
+<div class="col-span-3 text-right text-slate-400 group-hover:text-primary">MAY 12 14:02</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-3 hover:bg-slate-50 group cursor-pointer">
+<div class="col-span-6 flex items-center">
+<span class="text-slate-300 mr-4">-rwxr-xr-x</span>
+<span class="text-slate-700">concurrency_patterns</span>
+<span class="text-code-ext-go">.go</span>
+</div>
+<div class="col-span-3 text-slate-400">8.1kb</div>
+<div class="col-span-3 text-right text-slate-400 group-hover:text-primary">APR 28 09:15</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-3 hover:bg-slate-50 group cursor-pointer">
+<div class="col-span-6 flex items-center">
+<span class="text-slate-300 mr-4">-rw-r--r--</span>
+<span class="text-slate-700">fault_tolerant_raft</span>
+<span class="text-code-ext-rs">.rs</span>
+</div>
+<div class="col-span-3 text-slate-400">22.7kb</div>
+<div class="col-span-3 text-right text-slate-400 group-hover:text-primary">MAR 15 22:40</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-3 hover:bg-slate-50 group cursor-pointer">
+<div class="col-span-6 flex items-center">
+<span class="text-slate-300 mr-4">drwxr-xr-x</span>
+<span class="text-primary font-bold">archived_v1_scripts</span>
+<span class="text-slate-400">/</span>
+</div>
+<div class="col-span-3 text-slate-400">--</div>
+<div class="col-span-3 text-right text-slate-400 group-hover:text-primary">JAN 02 11:10</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-24">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-10 text-center">System_Components</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col items-center p-6 border border-slate-100 hover:border-primary transition-all group">
+<div class="w-12 h-12 mb-4 relative">
+<div class="absolute inset-0 bg-blue-100 group-hover:bg-blue-200" style="clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);"></div>
+<span class="material-symbols-outlined absolute inset-0 flex items-center justify-center text-blue-600">code</span>
+</div>
+<span class="text-[11px] font-bold">GOLANG</span>
+</div>
+<div class="flex flex-col items-center p-6 border border-slate-100 hover:border-primary transition-all group">
+<div class="w-12 h-12 mb-4 relative">
+<div class="absolute inset-0 bg-orange-100 group-hover:bg-orange-200" style="clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+<span class="material-symbols-outlined absolute inset-0 flex items-center justify-center text-orange-700">settings</span>
+</div>
+<span class="text-[11px] font-bold">RUST_LANG</span>
+</div>
+<div class="flex flex-col items-center p-6 border border-slate-100 hover:border-primary transition-all group">
+<div class="w-12 h-12 mb-4 relative">
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20" style="clip-path: polygon(50% 0, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);"></div>
+<span class="material-symbols-outlined absolute inset-0 flex items-center justify-center text-primary">hub</span>
+</div>
+<span class="text-[11px] font-bold">K8S_ORCH</span>
+</div>
+<div class="flex flex-col items-center p-6 border border-slate-100 hover:border-primary transition-all group">
+<div class="w-12 h-12 mb-4 relative">
+<div class="absolute inset-0 bg-red-100 group-hover:bg-red-200" style="clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);"></div>
+<span class="material-symbols-outlined absolute inset-0 flex items-center justify-center text-red-600">memory</span>
+</div>
+<span class="text-[11px] font-bold">REDIS_IO</span>
+</div>
+</div>
+</section>
+<section class="mb-24">
+<div class="flex justify-between items-end mb-8 border-b border-slate-100 pb-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary">Selected_Works</h3>
+<span class="text-[9px] text-slate-400 uppercase tracking-widest">Active Threads</span>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="p-8 border border-slate-200 hover:border-primary transition-all bg-white relative">
+<div class="absolute top-4 right-4 text-[8px] text-slate-300 font-mono">0x01</div>
+<div class="text-[9px] text-primary font-bold mb-3 tracking-widest uppercase">Project_01</div>
+<h4 class="font-display text-3xl mb-4 text-slate-900">Distributed Queue.</h4>
+<p class="text-[12px] opacity-70 mb-6 leading-relaxed">High-throughput message queue implementation in Rust with raft consensus for fault tolerance and zero-copy semantics.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">Rust</span>
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">Raft</span>
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">Netty</span>
+</div>
+</div>
+<div class="p-8 border border-slate-200 hover:border-primary transition-all bg-white relative">
+<div class="absolute top-4 right-4 text-[8px] text-slate-300 font-mono">0x02</div>
+<div class="text-[9px] text-primary font-bold mb-3 tracking-widest uppercase">Project_02</div>
+<h4 class="font-display text-3xl mb-4 text-slate-900">Edge Indexer.</h4>
+<p class="text-[12px] opacity-70 mb-6 leading-relaxed">Distributed indexing engine for edge compute nodes, reducing global search latency by 40% across 12 regions.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">Go</span>
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">gRPC</span>
+<span class="text-[8px] px-2 py-0.5 border border-slate-200 uppercase">KV_Store</span>
+</div>
+</div>
+</div>
+</section>
+<footer class="text-center pt-24 border-t border-slate-100">
+<div class="font-display text-5xl mb-8">Establish a handshake.</div>
+<a class="text-primary hover:underline text-xl mb-16 block font-mono" href="mailto:hello@rivers.dev">hello@rivers.dev</a>
+<div class="flex justify-center space-x-12 text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400">
+<a class="hover:text-primary transition-colors flex items-center" href="#"><span class="mr-1">_</span>GitHub</a>
+<a class="hover:text-primary transition-colors flex items-center" href="#"><span class="mr-1">_</span>LinkedIn</a>
+<a class="hover:text-primary transition-colors flex items-center" href="#"><span class="mr-1">_</span>TCP_Dump</a>
+</div>
+</footer>
+</main>
+</div>
+
+</body></html>
