@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Backend Portfolio | Minimalist Pixel</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Instrument Serif", "serif"],
+            mono: ["JetBrains Mono", "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-mono text-sm text-slate-800">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex gap-2 font-mono">
+    <!-- Sidebar-->
+    <aside class="py-8 px-8 pr-16 border-r border-slate-100 relative bg-slate-50/10">
+      <h1 title="Diego Felix" class="uppercase font-bold text-blue-600 tracking-wide">
+        <a href="#">Diego_Felix</a>
+        <!-- make the underline below the name -->
+        <div class="bg-blue-600 w-10 mt-1 h-1"></div>
+      </h1>
+
+      <nav class="mt-12">
+        <h2 class="text-slate-400 text-xs tracking-widest uppercase">01. Navigation</h2>
+        <ul class="mt-3 flex flex-col gap-3 ml-3 mt-4">
+          <li class="group relative hover:text-blue-600 transition">
+            <a href="#"><span class="hidden group-hover:block absolute -left-3 text-lg">_</span> Home</a>
+          </li>
+          <li class="group relative text-blue-600 font-bold transition">
+            <a href="#"><span class="group-hover:block absolute -left-3 text-lg">_</span> Blog</a>
+          </li>
+          <li class="group relative hover:text-blue-600 transition">
+            <a href="#"><span class="hidden group-hover:block absolute -left-3 text-lg">_</span> Projects</a>
+          </li>
+          <li class="group relative hover:text-blue-600 transition">
+            <a href="#"><span class="hidden group-hover:block absolute -left-3 text-lg">_</span> Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="mt-12">
+        <h2 class="text-slate-400 text-xs tracking-widest uppercase">02. Categories</h2>
+        <ul class="mt-3 flex flex-col gap-4 ml-3 mt-4">
+          <li class="text-slate-400 hover:text-blue-400 transition list-disc text-xs">
+            <a href="#">Sistemas Distribuídos</a>
+          </li>
+          <li class="text-slate-400 hover:text-blue-400 transition list-disc text-xs">
+            <a href="#">Database Design</a>
+          </li>
+          <li class="text-slate-400 hover:text-blue-400 transition list-disc text-xs">
+            <a href="#">Full Stack Development</a>
+          </li>
+          <li class="text-slate-400 hover:text-blue-400 transition list-disc text-xs">
+            <a href="#">Machine Learning</a>
+          </li>
+        </ul>
+
+        <!-- make sure this div is always at the bottom of the sidebar -->
+        <div class="absolute bottom-8 left-8 text-[10px] text-slate-400 dark:text-slate-600">
+          <p>© 2026 DEV_LOG</p>
+          <p>v3.9.2-stable</p>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="p-8 max-w-5xl mx-auto">
+      <h2>Olá</h2>
+    </main>
+    </div>
+  </div>
+</body>
+
+</html>
