@@ -21,7 +21,7 @@ if (!post.value) {
 </script>
 
 <template>
-  <main class="p-8 max-w-4xl mx-auto">
+  <main class="p-4 md:p-8 max-w-4xl mx-auto">
     <template v-if="post">
       <header class="mb-8">
         <RouterLink

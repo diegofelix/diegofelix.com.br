@@ -1,18 +1,44 @@
 <script setup lang="ts">
+import { RouterLink, useRoute } from 'vue-router'
 import { usePosts } from '@/composables/usePosts'
+import { computed } from 'vue'
 
-const { posts } = usePosts()
+const route = useRoute()
+const { posts, getPostsByCategory } = usePosts()
+
+const activeCategory = computed(() => (route.query.category as string) || null)
+
+const filteredPosts = computed(() => {
+  if (activeCategory.value) {
+    return getPostsByCategory(activeCategory.value)
+  }
+  return posts
+})
 </script>
 
 <template>
-  <main class="p-8 max-w-5xl mx-auto">
-    <h1 class="text-3xl text-blue-600 mb-8">Blog</h1>
+  <main class="p-4 md:p-8 max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+      <h1 class="text-3xl text-blue-600">
+        Blog
+        <span v-if="activeCategory" class="text-slate-400 text-lg">
+          / {{ activeCategory }}
+        </span>
+      </h1>
+      <RouterLink
+        v-if="activeCategory"
+        to="/blog"
+        class="text-sm text-slate-400 hover:text-blue-600 transition-colors"
+      >
+        Limpar filtro
+      </RouterLink>
+    </div>
 
     <div class="space-y-6">
       <article
-        v-for="post in posts"
+        v-for="post in filteredPosts"
         :key="post.slug"
-        class="border border-slate-700 rounded-lg p-6 hover:border-blue-600 transition-colors"
+        class="border border-slate-200 rounded-lg p-4 md:p-6 hover:border-blue-600 transition-colors"
       >
         <RouterLink
           :to="`/blog/${post.slug}`"
@@ -24,19 +50,24 @@ const { posts } = usePosts()
           <p class="text-slate-400 text-sm mb-3">
             {{ post.frontmatter.description }}
           </p>
-          <div class="flex gap-4 text-xs text-slate-500">
+          <div class="flex flex-wrap gap-4 text-xs text-slate-500">
             <time>{{ post.frontmatter.date }}</time>
-            <span>{{ post.frontmatter.category }}</span>
+            <span class="text-blue-600">{{ post.frontmatter.category }}</span>
           </div>
         </RouterLink>
       </article>
     </div>
 
     <p
-      v-if="posts.length === 0"
+      v-if="filteredPosts.length === 0"
       class="text-slate-400"
     >
-      Nenhum post publicado ainda.
+      <template v-if="activeCategory">
+        Nenhum post na categoria "{{ activeCategory }}".
+      </template>
+      <template v-else>
+        Nenhum post publicado ainda.
+      </template>
     </p>
   </main>
 </template>

@@ -1,9 +1,21 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+import { computed } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   to: string
 }>()
+
+const route = useRoute()
+
+const isHashLink = computed(() => props.to.startsWith('/#'))
+
+const isHashActive = computed(() => {
+  if (isHashLink.value) {
+    return route.hash === props.to.slice(1) && route.path === '/'
+  }
+  return false
+})
 </script>
 
 <template>
@@ -12,11 +24,11 @@ defineProps<{
       <span
         :class="[
           'absolute -left-3 -bottom-1 text-lg',
-          isActive ? 'block' : 'hidden group-hover:block'
+          (isActive && !isHashLink) || isHashActive ? 'block' : 'hidden group-hover:block'
         ]"
         >_</span
       >
-      <span :class="{ 'font-bold text-blue-600': isActive }">
+      <span :class="{ 'font-bold text-blue-600': (isActive && !isHashLink) || isHashActive }">
         <slot />
       </span>
     </RouterLink>

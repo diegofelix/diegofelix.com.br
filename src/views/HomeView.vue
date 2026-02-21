@@ -1,41 +1,44 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+// HomeView - Página principal do portfólio
 </script>
 
 <template>
-  <main class="p-8 max-w-5xl mx-auto">
-    <!-- Profile -->
-    <div class="flex gap-16 items-start">
-      <!-- Profile Picture -->
-      <div class="object-cover p-2 shadow-lg shadow-slate-200">
+  <main class="p-4 md:p-8 max-w-5xl mx-auto">
+    <!-- Perfil -->
+    <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start">
+      <!-- Foto de Perfil -->
+      <div class="object-cover p-2 shadow-lg shadow-slate-200 flex-shrink-0">
         <img
           src="../assets/profile-picture.png"
-          alt="Profile Picture of Diego Felix"
-          class="max-w-44 grayscale hover:grayscale-0 transition duration-500 hover:sepia"
+          alt="Foto de perfil de Diego Felix"
+          class="w-32 md:max-w-44 grayscale hover:grayscale-0 transition duration-500 hover:sepia"
         />
       </div>
-      <!-- Profile Information -->
-      <div>
-        <h2 class="text-blue-600 text-xs tracking-widest uppercase mt-8">
-          Software Engineer Specialist
+      <!-- Informações do Perfil -->
+      <div class="text-center md:text-left">
+        <h2 class="text-blue-600 text-xs tracking-widest uppercase mt-4 md:mt-8">
+          Engenheiro de Software Especialista
         </h2>
-        <h1 class="text-8xl mt-4 font-display">Diego Felix.</h1>
-        <div class="text-slate-500 text-sm mt-12">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-4 font-display">Diego Felix.</h1>
+        <div class="text-slate-500 text-sm mt-8 md:mt-12">
           <p>
-            I’ve been a web developer since 2009, specializing in building scalable,
-            high-performance applications.
+            Sou desenvolvedor web desde 2009, especializado em construir aplicações
+            escaláveis e de alta performance.
           </p>
           <p class="mt-2">
-            Currently, I’m a Software Engineer Specialist at Serasa Experian, leading teams to
-            deliver innovative solutions. My core strength is in PHP and Laravel and backend in
-            general.
+            Atualmente, sou Engenheiro de Software Especialista na Serasa Experian, liderando
+            equipes para entregar soluções inovadoras. Minha principal força está em PHP,
+            Laravel e backend em geral.
           </p>
         </div>
 
-        <!-- Buttons -->
-        <div class="flex gap-4 mt-12">
-          <button
-            class="bg-slate-900 hover:bg-blue-600 text-white border border-slate-900 transition px-4 py-2 flex gap-2 items-center"
+        <!-- Botões -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">
+          <a
+            href="https://linkedin.com/in/diegoflx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-slate-900 hover:bg-blue-600 text-white border border-slate-900 transition px-4 py-2 flex gap-2 items-center justify-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -47,17 +50,20 @@ import TheWelcome from '../components/TheWelcome.vue'
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <path d="M12 15V3" />
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <path d="m7 10 5 5 5-5" />
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
             </svg>
-            Download CV
-          </button>
-          <button
-            class="border border-slate-900 hover:border-blue-600 hover:text-blue-600 transition px-4 py-2 flex gap-2 items-center"
+            Ver Currículo
+          </a>
+          <a
+            href="https://github.com/diegofelix"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-slate-900 hover:border-blue-600 hover:text-blue-600 transition px-4 py-2 flex gap-2 items-center justify-center"
           >
             <svg
-              xmlnslns="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/2000/svg"
               class="w-4 h-4"
               viewBox="0 0 24 24"
               fill="none"
@@ -72,27 +78,27 @@ import TheWelcome from '../components/TheWelcome.vue'
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
             GitHub
-          </button>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Divider -->
-    <hr class="mt-24 border-slate-50" />
+    <!-- Divisor -->
+    <hr class="mt-12 md:mt-24 border-slate-50" />
 
-    <!-- Stats -->
-    <div class="grid grid-cols-4 divide-slate-50 divide-x border border-slate-50 grow mt-28">
+    <!-- Estatísticas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-slate-50 divide-x border border-slate-50 grow mt-12 md:mt-28">
       <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Experience</p>
-        <p class="font-bold uppercase text-base">16_YEARS</p>
+        <p class="text-slate-400 uppercase text-xs">Experiência</p>
+        <p class="font-bold uppercase text-base">16_ANOS</p>
       </div>
       <div class="flex flex-col gap-3 p-4 py-8">
         <p class="text-slate-400 uppercase text-xs">Status</p>
-        <p class="font-bold uppercase text-base text-green-600">Active</p>
+        <p class="font-bold uppercase text-base text-green-600">Ativo</p>
       </div>
       <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Tecnologies</p>
-        <p class="font-bold uppercase text-base">16_Masterized</p>
+        <p class="text-slate-400 uppercase text-xs">Tecnologias</p>
+        <p class="font-bold uppercase text-base">16_Dominadas</p>
       </div>
       <div class="flex flex-col gap-3 p-4 py-8">
         <p class="text-slate-400 uppercase text-xs">Commits</p>
@@ -100,12 +106,12 @@ import TheWelcome from '../components/TheWelcome.vue'
       </div>
     </div>
 
-    <!-- Blog Posts Header -->
-    <div class="flex gap-4 mt-28 justify-between">
-      <div class="flex gap-2">
+    <!-- Cabeçalho dos Posts do Blog -->
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-12 md:mt-28 justify-between">
+      <div class="flex gap-2 items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
+          class="w-5 h-5 flex-shrink-0"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -117,8 +123,8 @@ import TheWelcome from '../components/TheWelcome.vue'
             d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
           />
         </svg>
-        <h4 class="font-bold uppercase tracking-widest" aria-label="Recent Blog Posts">
-          /home/Diego/Recent_logs
+        <h4 class="font-bold uppercase tracking-widest text-sm md:text-base" aria-label="Posts Recentes do Blog">
+          /home/Diego/Posts_recentes
         </h4>
       </div>
       <div>
@@ -126,7 +132,7 @@ import TheWelcome from '../components/TheWelcome.vue'
       </div>
     </div>
     <div class="border border-slate-200 mt-8">
-      <!-- window top bar effect -->
+      <!-- Efeito da barra superior da janela -->
       <div class="bg-slate-50 h-8 border-b border-slate-200 flex gap-2 p-2 px-4 items-center">
         <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
         <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
@@ -136,40 +142,40 @@ import TheWelcome from '../components/TheWelcome.vue'
       <!-- Posts -->
       <div class="flex flex-col cursor-pointer">
         <div
-          class="group hover:bg-slate-50 flex gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
+          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
         >
-          <span class="text-slate-200">-rw-r--r--</span>
-          <h4 class="grow">optmizing_postgres_indices<span class="text-blue-600">.md</span></h4>
-          <span class="text-slate-200">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase">May 12, 2025</span>
+          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
+          <h4 class="grow truncate text-sm md:text-base">otimizando_indices_postgres<span class="text-blue-600">.md</span></h4>
+          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
+          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
         </div>
         <div
-          class="group hover:bg-slate-50 flex gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
+          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
         >
-          <span class="text-slate-200">-rw-r--r--</span>
-          <h4 class="grow">
-            optmizing_postgres_indicsadmnas_hsjdhses<span class="text-blue-600">.md</span>
+          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
+          <h4 class="grow truncate text-sm md:text-base">
+            arquitetura_de_microservicos<span class="text-blue-600">.md</span>
           </h4>
-          <span class="text-slate-200">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase">May 12, 2025</span>
+          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
+          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
         </div>
         <div
-          class="group hover:bg-slate-50 flex gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
+          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
         >
-          <span class="text-slate-200">-rw-r--r--</span>
-          <h4 class="grow">
-            optmizing_postgres_indic_ahjsdhjsdhjdsh_ajshdjh_es<span class="text-blue-600">.md</span>
+          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
+          <h4 class="grow truncate text-sm md:text-base">
+            escalando_aplicacoes_php<span class="text-blue-600">.md</span>
           </h4>
-          <span class="text-slate-200">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase">May 12, 2025</span>
+          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
+          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
         </div>
       </div>
     </div>
 
-    <!-- Selected Tecnologies -->
-    <div class="mt-28">
+    <!-- Tecnologias Selecionadas -->
+    <div class="mt-12 md:mt-28">
       <h3 class="text-center uppercase text-sm tracking-widest font-bold text-blue-600">
-        Selected_tecnologies
+        Tecnologias_selecionadas
       </h3>
       <ul class="flex flex-wrap gap-x-10 gap-y-4 justify-center my-8 text-sm">
         <li class="text-sm/2">PHP</li>
@@ -196,133 +202,135 @@ import TheWelcome from '../components/TheWelcome.vue'
       </ul>
     </div>
 
-    <section class="max-w-5xl mx-auto px-6 py-24">
-      <!-- Section Title -->
+    <section id="curriculo" class="max-w-5xl mx-auto px-2 md:px-6 py-12 md:py-24">
+      <!-- Título da Seção -->
       <div class="mb-12">
-        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase">Experience_Log</p>
-        <h2 class="text-3xl font-serif text-slate-900 mt-2">Professional Changelog</h2>
+        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase">Histórico_profissional</p>
+        <h2 class="text-3xl font-serif text-slate-900 mt-2">Changelog Profissional</h2>
       </div>
 
-      <!-- Timeline wrapper -->
+      <!-- Timeline -->
       <div class="relative border-l border-slate-200 pl-10 space-y-8">
-        <!-- Entry -->
+        <!-- Entrada -->
         <article class="relative pb-10">
-          <!-- Dot -->
+          <!-- Ponto -->
           <span
             class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-green-600 border border-green-600"
           ></span>
 
-          <!-- Date -->
-          <time class="block text-xs text-slate-400 mb-2"> 2025 — Present </time>
+          <!-- Data -->
+          <time class="block text-xs text-slate-400 mb-2"> 2025 — Presente </time>
 
-          <!-- Title -->
+          <!-- Título -->
           <h3 class="text-2xl font-serif text-slate-700">
-            Software Engineer Specialist · Serasa Experian
+            Engenheiro de Software Especialista · Serasa Experian
           </h3>
 
-          <!-- Subtitle -->
+          <!-- Descrição -->
           <p class="mt-3 text-slate-600">
-            Leading backend teams building scalable, high-throughput platforms in a regulated,
-            data-intensive environment.
+            Liderando equipes de backend na construção de plataformas escaláveis e de alto
+            desempenho em um ambiente regulado e intensivo em dados.
           </p>
 
-          <!-- Details -->
+          <!-- Detalhes -->
           <ul class="mt-5 space-y-2 text-sm text-slate-700">
-            <li>— Technical leadership and architectural decisions</li>
-            <li>— Ownership of critical backend services</li>
-            <li>— Focus on scalability, reliability and performance</li>
+            <li>— Liderança técnica e decisões arquiteturais</li>
+            <li>— Ownership de serviços críticos de backend</li>
+            <li>— Foco em escalabilidade, confiabilidade e performance</li>
           </ul>
 
           <hr class="border-b-1 border-slate-100 mt-3" />
 
-          <ul class="flex gap-2 mt-3">
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Leadership</li>
+          <ul class="flex flex-wrap gap-2 mt-3">
+            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Liderança</li>
             <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Golang</li>
             <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Java</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Scalable Systems</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Aws</li>
+            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Sistemas Escaláveis</li>
+            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">AWS</li>
           </ul>
         </article>
 
         <article class="relative">
-          <!-- Dot -->
+          <!-- Ponto -->
           <span
             class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-slate-50 border border-slate-300"
           ></span>
 
-          <!-- Date -->
+          <!-- Data -->
           <time class="block text-xs text-slate-400 mb-1"> 2016 — 2025 </time>
 
-          <!-- Title -->
+          <!-- Título -->
           <h3 class="text-xl font-serif text-slate-700">Tech Leader · Leroy Merlin</h3>
 
-          <!-- Subtitle -->
+          <!-- Descrição -->
           <p class="mt-1 text-xs text-slate-600">
-            Responsible for develop and lead team from our e-commerce platform, used by thousand of
-            customers every day.
+            Responsável por desenvolver e liderar a equipe da nossa plataforma de e-commerce,
+            utilizada por milhares de clientes todos os dias.
           </p>
         </article>
 
         <article class="relative">
-          <!-- Dot -->
+          <!-- Ponto -->
           <span
             class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-slate-50 border border-slate-300"
           ></span>
 
-          <!-- Date -->
+          <!-- Data -->
           <time class="block text-xs text-slate-400 mb-1"> 2011 - 2016 </time>
 
-          <!-- Title -->
-          <h3 class="text-xl font-serif text-slate-700">Web Developer · Makrosystems</h3>
+          <!-- Título -->
+          <h3 class="text-xl font-serif text-slate-700">Desenvolvedor Web · Makrosystems</h3>
 
-          <!-- Subtitle -->
+          <!-- Descrição -->
           <p class="mt-1 text-xs text-slate-600">
-            Developing internal systems and dashboards for big banking companies.
+            Desenvolvendo sistemas internos e dashboards para grandes empresas do setor bancário.
           </p>
         </article>
 
         <article class="relative">
-          <!-- Dot -->
+          <!-- Ponto -->
           <span
             class="absolute -left-[44px] top-0 w-2 h-2 rounded-full bg-slate-50 border border-slate-300"
           ></span>
 
-          <!-- Date -->
+          <!-- Data -->
           <time class="block text-xs text-slate-400 mb-1"> 2009 - 2011 </time>
 
-          <!-- Title -->
-          <h3 class="text-base font-serif text-slate-600">Web/Game Developer · Metacore</h3>
+          <!-- Título -->
+          <h3 class="text-base font-serif text-slate-600">Desenvolvedor Web/Games · Metacore</h3>
         </article>
 
         <article class="relative">
-          <!-- Dot -->
+          <!-- Ponto -->
           <span
             class="absolute -left-[44px] top-0 w-2 h-2 rounded-full bg-slate-50 border border-slate-300"
           ></span>
 
-          <!-- Date -->
+          <!-- Data -->
           <time class="block text-xs text-slate-400 mb-1"> 2007 - 2009 </time>
 
-          <!-- Title -->
-          <h3 class="text-base font-serif text-slate-600">Web Developer · Telefonica (Vivo)</h3>
+          <!-- Título -->
+          <h3 class="text-base font-serif text-slate-600">Desenvolvedor Web · Telefonica (Vivo)</h3>
         </article>
       </div>
     </section>
 
-    <footer class="text-center pt-28 border-t border-slate-100">
-      <h3 class="font-display text-5xl mb-8">Estabilish a handshake.</h3>
+    <footer id="contato" class="text-center pt-12 md:pt-28 border-t border-slate-100">
+      <h3 class="font-display text-3xl sm:text-4xl md:text-5xl mb-8">Vamos conversar.</h3>
       <a
-        class="text-blue-600 hover:underline text-xl mb-16 block font-mono"
+        class="text-blue-600 hover:underline text-lg md:text-xl mb-16 block font-mono break-all"
         href="mailto:contato@diegofelix.com.br"
         >contato@diegofelix.com.br</a
       >
       <ul
-        class="flex justify-center space-x-12 text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400"
+        class="flex flex-wrap justify-center gap-6 md:space-x-12 text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400"
       >
         <li>
           <a
             class="hover:text-blue-600 transition-colors flex items-center"
             href="https://github.com/diegofelix"
+            target="_blank"
+            rel="noopener noreferrer"
             ><span class="mr-1">_</span>GitHub</a
           >
         </li>
@@ -330,6 +338,8 @@ import TheWelcome from '../components/TheWelcome.vue'
           <a
             class="hover:text-blue-600 transition-colors flex items-center"
             href="https://linkedin.com/in/diegoflx"
+            target="_blank"
+            rel="noopener noreferrer"
             ><span class="mr-1">_</span>LinkedIn</a
           >
         </li>
@@ -337,6 +347,8 @@ import TheWelcome from '../components/TheWelcome.vue'
           <a
             class="hover:text-blue-600 transition-colors flex items-center"
             href="https://twitter.com/diegofelix"
+            target="_blank"
+            rel="noopener noreferrer"
             ><span class="mr-1">_</span>Twitter</a
           >
         </li>
