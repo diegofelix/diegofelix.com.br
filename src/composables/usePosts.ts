@@ -1,8 +1,10 @@
 import type { Post, PostFrontmatter } from '@/types/blog'
 
-const postModules = import.meta.glob<{
-  frontmatter: PostFrontmatter
-}>('../content/posts/*.md', { eager: true })
+// O plugin unplugin-vue-markdown expõe as propriedades do frontmatter diretamente no módulo
+const postModules = import.meta.glob<PostFrontmatter & { default: unknown }>(
+  '../content/posts/*.md',
+  { eager: true }
+)
 
 const postComponents = import.meta.glob('../content/posts/*.md')
 
@@ -11,7 +13,18 @@ export function usePosts() {
     .map(([path, module]) => {
       const filename = path.replace('../content/posts/', '').replace('.md', '')
       const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '')
-      const frontmatter = module.frontmatter || ({} as PostFrontmatter)
+
+      // Extrair frontmatter diretamente do módulo (não está em module.frontmatter)
+      const frontmatter: PostFrontmatter = {
+        title: module.title,
+        slug: module.slug,
+        date: module.date,
+        category: module.category,
+        tags: module.tags,
+        description: module.description,
+        image: module.image,
+        published: module.published,
+      }
 
       return {
         frontmatter,

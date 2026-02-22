@@ -14,9 +14,7 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     Markdown({
-      frontmatterDefaults: {
-        published: false,
-      },
+      exposeFrontmatter: true,
       async markdownItSetup(md) {
         md.use(
           await Shiki({
