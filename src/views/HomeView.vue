@@ -1,5 +1,21 @@
 <script setup lang="ts">
-// HomeView - Página principal do portfólio
+import { RouterLink } from 'vue-router'
+import { usePosts } from '@/composables/usePosts'
+import { computed } from 'vue'
+
+const { posts } = usePosts()
+
+const recentPosts = computed(() => posts.slice(0, 3))
+
+const formatSlug = (slug: string) => {
+  return slug.replace(/-/g, '_')
+}
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr)
+  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+  return `${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`
+}
 </script>
 
 <template>
@@ -140,35 +156,22 @@
       </div>
 
       <!-- Posts -->
-      <div class="flex flex-col cursor-pointer">
-        <div
-          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
-        >
-          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
-          <h4 class="grow truncate text-sm md:text-base">otimizando_indices_postgres<span class="text-blue-600">.md</span></h4>
-          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
-        </div>
-        <div
+      <div class="flex flex-col">
+        <RouterLink
+          v-for="post in recentPosts"
+          :key="post.slug"
+          :to="`/blog/${post.slug}`"
           class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
         >
           <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
           <h4 class="grow truncate text-sm md:text-base">
-            arquitetura_de_microservicos<span class="text-blue-600">.md</span>
+            {{ formatSlug(post.slug) }}<span class="text-blue-600">.md</span>
           </h4>
-          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
-        </div>
-        <div
-          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
-        >
-          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
-          <h4 class="grow truncate text-sm md:text-base">
-            escalando_aplicacoes_php<span class="text-blue-600">.md</span>
-          </h4>
-          <span class="text-slate-200 hidden sm:inline">12.4kb</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">12 Mai, 2025</span>
-        </div>
+          <span class="text-slate-200 hidden sm:inline">{{ Math.floor(Math.random() * 20 + 5) }}.{{ Math.floor(Math.random() * 9) }}kb</span>
+          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">
+            {{ formatDate(post.frontmatter.date) }}
+          </span>
+        </RouterLink>
       </div>
     </div>
 
