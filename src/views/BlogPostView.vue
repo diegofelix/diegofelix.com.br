@@ -39,7 +39,7 @@ if (!post.value) {
         </div>
       </header>
 
-      <article class="markdown-body">
+      <article class="prose prose-slate max-w-none">
         <component :is="PostContent" />
       </article>
     </template>
