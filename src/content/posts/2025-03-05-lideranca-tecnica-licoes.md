@@ -8,8 +8,6 @@ description: "Reflexões sobre o que aprendi liderando equipes de tecnologia ao 
 published: true
 ---
 
-# Lições de 9 Anos como Tech Lead
-
 Em 2016, assumi meu primeiro cargo de liderança técnica na Leroy Merlin. De lá pra cá, cometi muitos erros e aprendi algumas lições valiosas.
 
 ## 1. Código não é mais sua principal entrega

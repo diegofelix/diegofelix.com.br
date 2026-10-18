@@ -16,6 +16,14 @@ const isHashActive = computed(() => {
   }
   return false
 })
+
+// Verifica se a rota atual começa com o path do link (para sub-rotas como /blog/:slug)
+const isSubRouteActive = computed(() => {
+  if (props.to !== '/' && !isHashLink.value) {
+    return route.path.startsWith(props.to)
+  }
+  return false
+})
 </script>
 
 <template>
@@ -24,11 +32,11 @@ const isHashActive = computed(() => {
       <span
         :class="[
           'absolute -left-3 -bottom-1 text-lg',
-          (isActive && !isHashLink) || isHashActive ? 'block' : 'hidden group-hover:block'
+          (isActive && !isHashLink) || isHashActive || isSubRouteActive ? 'block' : 'hidden group-hover:block'
         ]"
         >_</span
       >
-      <span :class="{ 'font-bold text-blue-600': (isActive && !isHashLink) || isHashActive }">
+      <span :class="{ 'font-bold text-blue-600': (isActive && !isHashLink) || isHashActive || isSubRouteActive }">
         <slot />
       </span>
     </RouterLink>

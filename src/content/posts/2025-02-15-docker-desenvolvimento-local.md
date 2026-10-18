@@ -8,8 +8,6 @@ description: "Configure um ambiente de desenvolvimento local completo com Docker
 published: true
 ---
 
-# Docker para Desenvolvimento Local
-
 Cansei de ouvir "na minha máquina funciona". Vamos resolver isso de uma vez por todas com Docker.
 
 ## O problema

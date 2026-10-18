@@ -8,8 +8,6 @@ description: "Como dividir um monolito Laravel em microserviços de forma gradua
 published: true
 ---
 
-# Arquitetura de Microserviços com Laravel
-
 Migrar de um monolito para microserviços é uma decisão importante. Neste post, compartilho minha experiência liderando essa transição na Leroy Merlin.
 
 ## Quando migrar?

@@ -8,8 +8,6 @@ description: "Aprenda a identificar queries lentas e criar índices eficientes p
 published: true
 ---
 
-# Otimizando Índices no PostgreSQL
-
 Depois de anos trabalhando com aplicações de alta escala, percebi que a maioria dos problemas de performance estão relacionados a índices mal configurados.
 
 ## O problema comum

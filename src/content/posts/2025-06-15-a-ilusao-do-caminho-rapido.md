@@ -1,5 +1,5 @@
 ---
-title: "A Ilusao do Caminho Rapido para a Riqueza"
+title: "A Ilusão do Caminho Rápido para a Riqueza"
 slug: "a-ilusao-do-caminho-rapido"
 date: "2025-06-15"
 category: "Finance"
@@ -8,8 +8,6 @@ description: "Como meu primeiro post, gostaria de compartilhar algumas ideias so
 image: "/assets/post-shortcut-cropped.png"
 published: true
 ---
-
-# A Ilusao do caminho rapido para a riqueza
 
 Como meu primeiro post, e tambem como minha primeira contribuicao para a comunidade, gostaria de compartilhar algumas ideias sobre como alcancar a riqueza de maneira simples e eficaz.
 
