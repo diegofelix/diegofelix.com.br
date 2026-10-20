@@ -1,13 +1,7 @@
-version: "3"
-
 services:
-  frontend:
-    container_name: new-portfolio-frontend
-    build:
-      context: .docker/build/app
-      dockerfile: Dockerfile
-    command: npm run dev
-    volumes:
-      - .:/var/www/
+  web:
+    build: .
+    container_name: diegofelix-web
+    restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "${PORT:-8080}:80"
