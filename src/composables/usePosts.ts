@@ -13,18 +13,8 @@ export function usePosts() {
     return posts.find((post) => post.slug === slug)
   }
 
-  const getPostsByCategory = (category: string): Post[] => {
-    return posts.filter((post) => post.frontmatter.category === category)
-  }
-
-  const getCategories = (): string[] => {
-    return [...new Set(posts.map((post) => post.frontmatter.category))]
-  }
-
   return {
     posts,
     getPostBySlug,
-    getPostsByCategory,
-    getCategories,
   }
 }

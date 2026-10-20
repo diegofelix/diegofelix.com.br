@@ -1,3 +1,4 @@
+import '@fontsource/jetbrains-mono/latin-400.css'
 import './assets/main.css'
 
 import { ViteSSG } from 'vite-ssg'

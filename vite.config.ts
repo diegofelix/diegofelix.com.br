@@ -21,7 +21,7 @@ export default defineConfig({
       async markdownItSetup(md) {
         md.use(
           await Shiki({
-            theme: 'github-dark',
+            theme: 'github-light',
           })
         )
       },

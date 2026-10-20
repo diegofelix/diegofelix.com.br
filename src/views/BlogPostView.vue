@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
-import { useRoute } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import { usePosts } from '@/composables/usePosts'
 import { useSeo } from '@/composables/useSeo'
 import { formatDate } from '@/utils/date'
@@ -27,39 +27,22 @@ useSeo(() => ({
 </script>
 
 <template>
-  <main v-if="post" class="p-4 md:p-8 max-w-4xl mx-auto w-full">
-    <header class="mb-8">
-      <RouterLink
-        to="/blog"
-        class="text-blue-600 hover:underline text-sm"
-      >
-        &larr; Voltar para posts
-      </RouterLink>
-      <h1 class="text-3xl text-blue-600 mt-4">
-        {{ post.frontmatter.title }}
-      </h1>
-      <div class="flex gap-4 text-sm text-slate-400 mt-2">
+  <main v-if="post" class="pt-4">
+    <header>
+      <h1 class="text-3xl font-semibold tracking-tight text-balance">{{ post.frontmatter.title }}</h1>
+      <p class="mt-3 font-mono text-sm text-subtle">
         <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time>
-        <RouterLink
-          :to="`/blog?category=${encodeURIComponent(post.frontmatter.category)}`"
-          class="hover:text-blue-600"
-        >
-          {{ post.frontmatter.category }}
-        </RouterLink>
-      </div>
-      <img
-        v-if="post.frontmatter.image"
-        :src="post.frontmatter.image"
-        :alt="post.frontmatter.title"
-        class="mt-8 w-full border border-slate-100"
-        width="1200"
-        height="533"
-      />
+        · {{ post.frontmatter.category }}
+      </p>
     </header>
 
-    <article class="prose prose-slate max-w-none">
+    <article class="prose prose-neutral mt-10 max-w-none">
       <component :is="PostContent" />
     </article>
+
+    <p class="mt-16 border-t border-line pt-6 text-sm">
+      <RouterLink to="/blog" class="text-accent hover:underline">← Todos os posts</RouterLink>
+    </p>
   </main>
   <NotFoundView v-else />
 </template>

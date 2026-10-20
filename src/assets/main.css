@@ -2,7 +2,65 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-serif: 'Instrument Serif', serif;
-  --font-display: 'Instrument Serif', serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Paleta única do site: o accent é usado só em links */
+  --color-ink: #111111;
+  --color-muted: #525252;
+  --color-subtle: #6b6b6b;
+  --color-line: #e5e5e5;
+  --color-accent: #1d4ed8;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+/* Posts: mesmas cores do site, código em mono, sem destaque azul em títulos */
+.prose {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-quotes: var(--color-muted);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-bullets: var(--color-subtle);
+  --tw-prose-counters: var(--color-subtle);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-captions: var(--color-subtle);
+}
+
+.prose :where(h2, h3, h4):not(:where(.not-prose *)) {
+  font-weight: 600;
+}
+
+.prose :where(a):not(:where(.not-prose *)) {
+  font-weight: 400;
+}
+
+.prose :where(pre):not(:where(.not-prose *)) {
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  font-size: 0.875rem;
+}
+
+.prose :where(code):not(:where(pre *, .not-prose *)) {
+  font-weight: 400;
 }
