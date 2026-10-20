@@ -5,7 +5,7 @@ date: "2025-05-20"
 category: "Backend"
 tags: ["postgres", "database", "performance"]
 description: "Aprenda a identificar queries lentas e criar índices eficientes para melhorar a performance do seu banco de dados."
-published: true
+published: false
 ---
 
 Depois de anos trabalhando com aplicações de alta escala, percebi que a maioria dos problemas de performance estão relacionados a índices mal configurados.
