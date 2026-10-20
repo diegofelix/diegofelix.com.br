@@ -2,10 +2,9 @@
 title: "A Ilusão do Caminho Rápido para a Riqueza"
 slug: "a-ilusao-do-caminho-rapido"
 date: "2025-06-15"
-category: "Finance"
+category: "Finanças"
 tags: ["investing", "personal-finance", "bitcoin"]
 description: "Como meu primeiro post, gostaria de compartilhar algumas ideias sobre como alcançar a riqueza de maneira simples e eficaz."
-image: "/images/posts/a-ilusao-do-caminho-rapido.jpg"
 published: true
 ---
 

@@ -10,8 +10,16 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import Shiki from '@shikijs/markdown-it'
 import { postsPlugin, ssgRoutes } from './build/posts'
 
+// Versão do site = idade/10 + mês do deploy (ex.: 3.9.10-stable)
+const now = new Date()
+const siteVersion = `${(now.getFullYear() - 1987) / 10}.${now.getMonth() + 1}-stable`
+
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __SITE_VERSION__: JSON.stringify(siteVersion),
+    __BUILD_YEAR__: JSON.stringify(now.getFullYear()),
+  },
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
@@ -21,7 +29,7 @@ export default defineConfig({
       async markdownItSetup(md) {
         md.use(
           await Shiki({
-            theme: 'github-dark',
+            theme: 'github-light',
           })
         )
       },

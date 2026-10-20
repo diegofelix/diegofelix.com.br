@@ -14,18 +14,29 @@ export interface PostMeta {
   description: string
   image?: string
   published: boolean
+  /** Rascunho que aparece no sumário como "em breve" (sem link e sem conteúdo no bundle) */
+  upcoming: boolean
   file: string
   size: number
+  words: number
 }
+
+/** Conta palavras do texto, ignorando blocos de código e marcação */
+const countWords = (markdown: string) =>
+  markdown
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/[#>*_`[\]()!|-]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length
 
 const POSTS_DIR = join(import.meta.dirname, '../src/content/posts')
 
-export function loadPosts(): PostMeta[] {
+function loadAllPosts(): PostMeta[] {
   return readdirSync(POSTS_DIR)
     .filter((file) => file.endsWith('.md'))
     .map((file) => {
       const raw = readFileSync(join(POSTS_DIR, file), 'utf-8')
-      const { data } = matter(raw)
+      const { data, content } = matter(raw)
       // gray-matter converte datas sem aspas em Date; normaliza para "YYYY-MM-DD"
       const date =
         data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date)
@@ -35,12 +46,24 @@ export function loadPosts(): PostMeta[] {
         date,
         slug: data.slug || file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, ''),
         published: data.published === true,
+        upcoming: data.published !== true && data.upcoming === true,
         file,
         size: Buffer.byteLength(raw),
+        words: countWords(content),
       } as PostMeta
     })
-    .filter((post) => post.published)
     .sort((a, b) => b.date.localeCompare(a.date))
+}
+
+export function loadPosts(): PostMeta[] {
+  return loadAllPosts().filter((post) => post.published)
+}
+
+/** Só título e categoria dos rascunhos marcados como `upcoming` */
+export function loadUpcoming() {
+  return loadAllPosts()
+    .filter((post) => post.upcoming)
+    .map(({ title, slug, category }) => ({ title, slug, category }))
 }
 
 const escapeXml = (str: string) =>
@@ -121,7 +144,11 @@ export function postsPlugin(): Plugin {
             `  ${JSON.stringify(post.file)}: () => import(${JSON.stringify(join(POSTS_DIR, post.file))}),`,
         )
         .join('\n')
-      return `export default ${JSON.stringify(posts)}\nexport const loaders = {\n${loaders}\n}`
+      return [
+        `export default ${JSON.stringify(posts)}`,
+        `export const upcoming = ${JSON.stringify(loadUpcoming())}`,
+        `export const loaders = {\n${loaders}\n}`,
+      ].join('\n')
     },
     configureServer(server) {
       // Recarrega a lista quando um post é criado, editado ou removido

@@ -6,6 +6,7 @@ category: "Liderança"
 tags: ["leadership", "career", "tech-lead"]
 description: "Reflexões sobre o que aprendi liderando equipes de tecnologia ao longo de quase uma década."
 published: false
+upcoming: true
 ---
 
 Em 2016, assumi meu primeiro cargo de liderança técnica na Leroy Merlin. De lá pra cá, cometi muitos erros e aprendi algumas lições valiosas.

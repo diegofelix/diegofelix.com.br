@@ -9,12 +9,12 @@ useHead({
 </script>
 
 <template>
-  <main class="p-4 md:p-8 max-w-5xl mx-auto w-full">
-    <p class="text-xs font-bold tracking-widest text-blue-600 uppercase">Erro_404</p>
-    <h1 class="text-4xl sm:text-5xl md:text-6xl mt-4 font-display">Página não encontrada.</h1>
-    <p class="text-slate-500 mt-8">O caminho que você procurou não existe ou foi movido.</p>
-    <RouterLink to="/" class="inline-block mt-8 text-blue-600 hover:underline"
-      >&larr; Voltar para o início</RouterLink
-    >
+  <main class="mt-20 text-center">
+    <p class="font-pixel text-[clamp(4rem,18vw,9rem)] leading-none text-blue">404</p>
+    <h1 class="mt-8 text-2xl font-semibold">Página não encontrada.</h1>
+    <p class="mx-auto mt-3 max-w-md text-muted">O caminho que você procurou não existe ou foi movido.</p>
+    <p class="mt-8 font-mono text-[11px] tracking-[0.12em] uppercase">
+      <RouterLink to="/" class="text-blue hover:underline">← Voltar para o início</RouterLink>
+    </p>
   </main>
 </template>

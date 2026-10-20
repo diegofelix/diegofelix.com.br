@@ -1,370 +1,189 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { usePosts } from '@/composables/usePosts'
+import BlueprintFigure from '@/components/BlueprintFigure.vue'
+import PixelRule from '@/components/PixelRule.vue'
+import PostIndex from '@/components/PostIndex.vue'
+import FigArchitecture from '@/components/figures/FigArchitecture.vue'
+import FigBTree from '@/components/figures/FigBTree.vue'
+import FigCheckout from '@/components/figures/FigCheckout.vue'
 import { useSeo } from '@/composables/useSeo'
-import { formatDate } from '@/utils/date'
-import { computed } from 'vue'
 import profilePicture from '@/assets/profile-picture.webp'
 
-const { posts } = usePosts()
+const experience = [
+  {
+    period: '2025 — hoje',
+    role: 'Engenheiro de Software Especialista',
+    company: 'Serasa Experian',
+    summary:
+      'Lidero equipes de backend na construção de plataformas escaláveis e de alto desempenho, em um ambiente regulado e intensivo em dados.',
+    highlights: [
+      'Liderança técnica e decisões de arquitetura',
+      'Ownership de serviços críticos de backend',
+      'Escalabilidade, confiabilidade e performance',
+    ],
+    tags: ['Liderança', 'Go', 'Java', 'AWS', 'Sistemas escaláveis'],
+    current: true,
+  },
+  {
+    period: '2016 — 2025',
+    role: 'Tech Leader',
+    company: 'Leroy Merlin',
+    summary:
+      'Desenvolvi e liderei a equipe da plataforma de e-commerce, usada por milhares de clientes todos os dias.',
+  },
+  {
+    period: '2011 — 2016',
+    role: 'Desenvolvedor Web',
+    company: 'Makrosystems',
+    summary: 'Sistemas internos e dashboards para grandes empresas do setor bancário.',
+  },
+  {
+    period: '2009 — 2011',
+    role: 'Desenvolvedor Web e Games',
+    company: 'Metacore',
+  },
+  {
+    period: '2007 — 2009',
+    role: 'Técnico',
+    company: 'Telefonica (Vivo)',
+  },
+]
 
-const recentPosts = computed(() => posts.slice(0, 3))
-
-const yearsOfExperience = new Date().getFullYear() - 2009
-
-const formatSlug = (slug: string) => {
-  return slug.replace(/-/g, '_')
-}
-
-const formatSize = (bytes: number) => {
-  return `${(bytes / 1024).toFixed(1)}kb`
-}
-
-const totalSize = computed(() => formatSize(posts.reduce((sum, post) => sum + post.frontmatter.size, 0)))
+const buildYear = String(__BUILD_YEAR__)
 
 useSeo({ path: '/' })
 </script>
 
 <template>
-  <main class="p-4 md:p-8 max-w-5xl mx-auto">
-    <!-- Perfil -->
-    <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start">
-      <!-- Foto de Perfil -->
-      <div class="object-cover p-2 shadow-lg shadow-slate-200 flex-shrink-0">
-        <img
-          :src="profilePicture"
-          width="176"
-          height="264"
-          alt="Foto de perfil de Diego Felix"
-          class="w-32 md:max-w-44 grayscale hover:grayscale-0 transition duration-500 hover:sepia"
-        />
-      </div>
-      <!-- Informações do Perfil -->
-      <div class="text-center md:text-left">
-        <h2 class="text-blue-600 text-xs tracking-widest uppercase mt-4 md:mt-8">
-          Engenheiro de Software Especialista
-        </h2>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-4 font-display">Diego Felix.</h1>
-        <div class="text-slate-500 text-sm mt-8 md:mt-12">
-          <p>
-            Sou desenvolvedor web desde 2009, especializado em construir aplicações
-            escaláveis e de alta performance.
-          </p>
-          <p class="mt-2">
-            Atualmente, sou Engenheiro de Software Especialista na Serasa Experian, liderando
-            equipes para entregar soluções inovadoras. Minha principal força está em PHP,
-            Laravel e backend em geral.
-          </p>
+  <main>
+    <!-- Abertura: texto à esquerda, figura principal à direita -->
+    <section class="mt-10 grid gap-x-12 gap-y-12 lg:grid-cols-12">
+      <div class="min-w-0 lg:col-span-4">
+        <p class="dropcap text-justify hyphens-auto" lang="pt-BR">
+          Sou Diego Felix, desenvolvedor desde 2009. Passei a maior parte desse tempo do lado de trás
+          das aplicações: APIs, filas, bancos de dados e tudo o que acontece depois que alguém clica
+          em um botão.
+        </p>
+        <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
+          Hoje sou Engenheiro de Software Especialista na Serasa Experian, onde lidero equipes que
+          constroem plataformas escaláveis em um ambiente regulado e intensivo em dados.
+        </p>
+
+        <div class="mt-10">
+          <BlueprintFigure number="002" label="Índice B-tree">
+            <FigBTree />
+          </BlueprintFigure>
         </div>
 
-        <!-- Botões -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">
-          <a
-            href="https://linkedin.com/in/diegoflx"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-slate-900 hover:bg-blue-600 text-white border border-slate-900 transition px-4 py-2 flex gap-2 items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/diegofelix"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="border border-slate-900 hover:border-blue-600 hover:text-blue-600 transition px-4 py-2 flex gap-2 items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-              />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-            GitHub
-          </a>
-        </div>
+        <p class="mt-8 text-justify hyphens-auto" lang="pt-BR">
+          Um índice é o motivo de uma busca entre milhões de linhas levar milissegundos. Boa parte do
+          meu trabalho é sobre detalhes assim, que ninguém vê quando funcionam.
+        </p>
+        <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
+          Minha principal ferramenta ainda é PHP com Laravel, mas o dia a dia também passa por Go,
+          Java, PostgreSQL, Kafka e AWS.
+        </p>
       </div>
-    </div>
 
-    <!-- Divisor -->
-    <hr class="mt-12 md:mt-24 border-slate-50" />
+      <div class="min-w-0 lg:col-span-8">
+        <BlueprintFigure number="001" label="Arquitetura backend" :note="buildYear">
+          <FigArchitecture />
+          <template #caption>
+            — Uma compra atravessando um sistema típico dos que eu ajudo a construir: balanceador,
+            APIs, cache, fila de eventos, workers e o banco de dados como fonte da verdade.
+          </template>
+        </BlueprintFigure>
 
-    <!-- Estatísticas -->
-    <div class="grid grid-cols-2 md:grid-cols-4 divide-slate-50 divide-x border border-slate-50 grow mt-12 md:mt-28">
-      <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Experiência</p>
-        <p class="font-bold uppercase text-base">{{ yearsOfExperience }}_ANOS</p>
-      </div>
-      <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Status</p>
-        <p class="font-bold uppercase text-base text-green-600">Ativo</p>
-      </div>
-      <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Tecnologias</p>
-        <p class="font-bold uppercase text-base">16_Dominadas</p>
-      </div>
-      <div class="flex flex-col gap-3 p-4 py-8">
-        <p class="text-slate-400 uppercase text-xs">Commits</p>
-        <p class="font-bold uppercase text-base">12_300+</p>
-      </div>
-    </div>
-
-    <!-- Cabeçalho dos Posts do Blog -->
-    <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-12 md:mt-28 justify-between">
-      <div class="flex gap-2 items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5 flex-shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
+        <div class="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
+          <img
+            :src="profilePicture"
+            alt="Foto de Diego Felix"
+            width="120"
+            height="180"
+            class="w-28 border border-blue-100 bg-white p-1.5 grayscale sm:w-32"
           />
-        </svg>
-        <h4 class="font-bold uppercase tracking-widest text-sm md:text-base" aria-label="Posts Recentes do Blog">
-          /home/Diego/Posts_recentes
-        </h4>
-      </div>
-      <div>
-        <p class="text-slate-400 text-xs" aria-hidden="true">Total: {{ totalSize }}</p>
-      </div>
-    </div>
-    <div class="border border-slate-200 mt-8">
-      <!-- Efeito da barra superior da janela -->
-      <div class="bg-slate-50 h-8 border-b border-slate-200 flex gap-2 p-2 px-4 items-center">
-        <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-        <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-        <div class="w-3 h-3 bg-slate-200 rounded-full"></div>
-      </div>
-
-      <!-- Posts -->
-      <div class="flex flex-col">
-        <RouterLink
-          v-for="post in recentPosts"
-          :key="post.slug"
-          :to="`/blog/${post.slug}`"
-          class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
-        >
-          <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
-          <h4 class="grow min-w-0 truncate text-sm md:text-base">
-            {{ formatSlug(post.slug) }}<span class="text-blue-600">.md</span>
-          </h4>
-          <span class="text-slate-200 hidden sm:inline">{{ formatSize(post.frontmatter.size) }}</span>
-          <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">
-            <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time>
-          </span>
-        </RouterLink>
-      </div>
-    </div>
-
-    <!-- Tecnologias Selecionadas -->
-    <div class="mt-12 md:mt-28">
-      <h3 class="text-center uppercase text-sm tracking-widest font-bold text-blue-600">
-        Tecnologias_selecionadas
-      </h3>
-      <ul class="flex flex-wrap gap-x-10 gap-y-4 justify-center my-8 text-sm">
-        <li class="text-sm/2">PHP</li>
-        <li class="text-sm/2">Laravel</li>
-        <li class="text-sm/2">MySQL</li>
-        <li class="text-sm/2">Postgres</li>
-        <li class="text-sm/2">MongoDB</li>
-        <li class="text-sm/2">Elasticsearch</li>
-        <li class="text-sm/2">Docker</li>
-        <li class="text-sm/2">VueJS</li>
-        <li class="text-sm/2">Git</li>
-        <li class="text-sm/2">GitHub</li>
-        <li class="text-sm/2">GitLab</li>
-        <li class="text-sm/2">Redis</li>
-        <li class="text-sm/2">Kafka</li>
-        <li class="text-sm/2">AWS</li>
-        <li class="text-sm/2">Linux</li>
-        <li class="text-sm/2">Windows</li>
-        <li class="text-sm/2">MacOS</li>
-        <li class="text-sm/2">CSS</li>
-        <li class="text-sm/2">HTML</li>
-        <li class="text-sm/2">JS</li>
-        <li class="text-sm/2">Nginx</li>
-      </ul>
-    </div>
-
-    <section id="curriculo" class="max-w-5xl mx-auto px-2 md:px-6 py-12 md:py-24">
-      <!-- Título da Seção -->
-      <div class="mb-12">
-        <p class="text-xs font-bold tracking-widest text-blue-600 uppercase">Histórico_profissional</p>
-        <h2 class="text-3xl font-serif text-slate-900 mt-2">Changelog Profissional</h2>
-      </div>
-
-      <!-- Timeline -->
-      <div class="relative border-l border-slate-200 pl-10 space-y-8">
-        <!-- Entrada -->
-        <article class="relative pb-10">
-          <!-- Ponto -->
-          <span
-            class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-green-600 border border-green-600"
-          ></span>
-
-          <!-- Data -->
-          <time class="block text-xs text-slate-400 mb-2"> 2025 — Presente </time>
-
-          <!-- Título -->
-          <h3 class="text-2xl font-serif text-slate-700">
-            Engenheiro de Software Especialista · Serasa Experian
-          </h3>
-
-          <!-- Descrição -->
-          <p class="mt-3 text-slate-600">
-            Liderando equipes de backend na construção de plataformas escaláveis e de alto
-            desempenho em um ambiente regulado e intensivo em dados.
-          </p>
-
-          <!-- Detalhes -->
-          <ul class="mt-5 space-y-2 text-sm text-slate-700">
-            <li>— Liderança técnica e decisões arquiteturais</li>
-            <li>— Ownership de serviços críticos de backend</li>
-            <li>— Foco em escalabilidade, confiabilidade e performance</li>
-          </ul>
-
-          <hr class="border-b-1 border-slate-100 mt-3" />
-
-          <ul class="flex flex-wrap gap-2 mt-3">
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Liderança</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Golang</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Java</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">Sistemas Escaláveis</li>
-            <li class="text-xs p-0.5 text-slate-600 border border-slate-300">AWS</li>
-          </ul>
-        </article>
-
-        <article class="relative">
-          <!-- Ponto -->
-          <span
-            class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-slate-50 border border-slate-300"
-          ></span>
-
-          <!-- Data -->
-          <time class="block text-xs text-slate-400 mb-1"> 2016 — 2025 </time>
-
-          <!-- Título -->
-          <h3 class="text-xl font-serif text-slate-700">Tech Leader · Leroy Merlin</h3>
-
-          <!-- Descrição -->
-          <p class="mt-1 text-xs text-slate-600">
-            Responsável por desenvolver e liderar a equipe da nossa plataforma de e-commerce,
-            utilizada por milhares de clientes todos os dias.
-          </p>
-        </article>
-
-        <article class="relative">
-          <!-- Ponto -->
-          <span
-            class="absolute -left-[46px] top-0 w-3 h-3 rounded-full bg-slate-50 border border-slate-300"
-          ></span>
-
-          <!-- Data -->
-          <time class="block text-xs text-slate-400 mb-1"> 2011 - 2016 </time>
-
-          <!-- Título -->
-          <h3 class="text-xl font-serif text-slate-700">Desenvolvedor Web · Makrosystems</h3>
-
-          <!-- Descrição -->
-          <p class="mt-1 text-xs text-slate-600">
-            Desenvolvendo sistemas internos e dashboards para grandes empresas do setor bancário.
-          </p>
-        </article>
-
-        <article class="relative">
-          <!-- Ponto -->
-          <span
-            class="absolute -left-[44px] top-0 w-2 h-2 rounded-full bg-slate-50 border border-slate-300"
-          ></span>
-
-          <!-- Data -->
-          <time class="block text-xs text-slate-400 mb-1"> 2009 - 2011 </time>
-
-          <!-- Título -->
-          <h3 class="text-base font-serif text-slate-600">Desenvolvedor Web/Games · Metacore</h3>
-        </article>
-
-        <article class="relative">
-          <!-- Ponto -->
-          <span
-            class="absolute -left-[44px] top-0 w-2 h-2 rounded-full bg-slate-50 border border-slate-300"
-          ></span>
-
-          <!-- Data -->
-          <time class="block text-xs text-slate-400 mb-1"> 2007 - 2009 </time>
-
-          <!-- Título -->
-          <h3 class="text-base font-serif text-slate-600">Técnico · Telefonica (Vivo)</h3>
-        </article>
+          <div>
+            <p class="font-semibold">Se você chegou até aqui, provavelmente também gosta de saber como as coisas funcionam por dentro.</p>
+            <p class="mt-4 text-justify hyphens-auto" lang="pt-BR">
+              Este site é onde eu guardo o que aprendi: notas sobre engenharia, liderança de times e,
+              de vez em quando, finanças. Sem tutoriais apressados, só o que eu gostaria de ter lido
+              antes.
+            </p>
+            <p class="mt-6 flex flex-wrap gap-3 font-mono text-[11px] tracking-[0.1em] uppercase">
+              <a href="https://github.com/diegofelix" class="border border-ink px-3 py-1.5 hover:bg-blue-100">GitHub</a>
+              <a href="https://linkedin.com/in/diegoflx" class="border border-ink px-3 py-1.5 hover:bg-blue-100">LinkedIn</a>
+              <a href="mailto:contato@diegofelix.com.br" class="border border-ink px-3 py-1.5 hover:bg-blue-100">E-mail</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer id="contato" class="text-center pt-12 md:pt-28 border-t border-slate-100">
-      <h3 class="font-display text-3xl sm:text-4xl md:text-5xl mb-8">Vamos conversar.</h3>
+    <!-- Escritos -->
+    <div class="mt-24">
+      <PixelRule label="Escritos" />
+    </div>
+    <div class="mt-16">
+      <PostIndex />
+    </div>
+
+    <!-- Experiência -->
+    <div class="mt-24">
+      <PixelRule label="Experiência" />
+    </div>
+    <section id="experiencia" class="mt-16 grid scroll-mt-8 gap-x-12 gap-y-12 lg:grid-cols-12">
+      <div class="min-w-0 lg:col-span-4">
+        <h2 class="text-xl leading-none">Changelog.</h2>
+        <p class="mt-4 text-muted">Da versão atual para a primeira, como todo bom changelog.</p>
+        <div class="mt-10">
+          <BlueprintFigure number="003" label="Checkout · sequência">
+            <FigCheckout />
+            <template #caption>
+              — O caminho de um pedido no e-commerce. Foram nove anos liderando a equipe dessa
+              plataforma na Leroy Merlin.
+            </template>
+          </BlueprintFigure>
+        </div>
+      </div>
+
+      <ol class="min-w-0 lg:col-span-8">
+        <li
+          v-for="job in experience"
+          :key="job.company"
+          class="grid gap-x-8 border-t border-blue-100 py-6 first:border-t-0 first:pt-0 sm:grid-cols-[9rem_1fr]"
+        >
+          <p class="font-mono text-[12px] tracking-[0.08em] uppercase sm:pt-1" :class="job.current ? 'text-blue' : 'text-muted'">
+            {{ job.period }}
+          </p>
+          <div class="mt-1 sm:mt-0">
+            <h3 class="text-xl leading-snug" :class="{ 'font-semibold': job.current }">{{ job.role }}</h3>
+            <p class="font-mono text-[11px] tracking-[0.12em] text-muted uppercase">{{ job.company }}</p>
+            <p v-if="job.summary" class="mt-3">{{ job.summary }}</p>
+            <ul v-if="job.highlights" class="mt-3 space-y-1">
+              <li v-for="item in job.highlights" :key="item">— {{ item }}</li>
+            </ul>
+            <p v-if="job.tags" class="mt-4 flex flex-wrap gap-2 font-mono text-[10px] tracking-[0.08em] text-blue uppercase">
+              <span v-for="tag in job.tags" :key="tag">[ {{ tag }} ]</span>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Contato -->
+    <div class="mt-24">
+      <PixelRule label="Contato" />
+    </div>
+    <section id="contato" class="mt-20 scroll-mt-8 text-center">
+      <h2 class="font-pixel text-[clamp(1.75rem,6vw,3.5rem)] leading-none text-blue">Vamos conversar.</h2>
+      <p class="mx-auto mt-6 max-w-md text-muted">
+        Sobre backend, liderança técnica, uma oportunidade ou um post que você leu aqui.
+      </p>
       <a
-        class="text-blue-600 hover:underline text-lg md:text-xl mb-16 block font-mono break-all"
         href="mailto:contato@diegofelix.com.br"
-        >contato@diegofelix.com.br</a
+        class="mt-6 inline-block font-mono text-base break-all text-blue underline sm:text-lg"
       >
-      <ul
-        class="flex flex-wrap justify-center gap-6 md:space-x-12 text-[9px] uppercase tracking-[0.3em] font-bold text-slate-400"
-      >
-        <li>
-          <a
-            class="hover:text-blue-600 transition-colors flex items-center"
-            href="https://github.com/diegofelix"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><span class="mr-1">_</span>GitHub</a
-          >
-        </li>
-        <li>
-          <a
-            class="hover:text-blue-600 transition-colors flex items-center"
-            href="https://linkedin.com/in/diegoflx"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><span class="mr-1">_</span>LinkedIn</a
-          >
-        </li>
-        <li>
-          <a
-            class="hover:text-blue-600 transition-colors flex items-center"
-            href="https://twitter.com/diegofelix"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><span class="mr-1">_</span>Twitter</a
-          >
-        </li>
-      </ul>
-    </footer>
+        contato@diegofelix.com.br
+      </a>
+    </section>
   </main>
 </template>

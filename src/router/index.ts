@@ -26,10 +26,7 @@ export const routes: RouteRecordRaw[] = [
 
 export const scrollBehavior: RouterScrollBehavior = (to, _from, savedPosition) => {
   if (to.hash) {
-    return {
-      el: to.hash,
-      behavior: 'smooth',
-    }
+    return { el: to.hash }
   }
   if (savedPosition) {
     return savedPosition

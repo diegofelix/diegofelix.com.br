@@ -9,8 +9,13 @@ declare module '*.md' {
 }
 
 declare module 'virtual:posts' {
-  import type { PostMeta } from '@/types/blog'
+  import type { PostMeta, UpcomingPost } from '@/types/blog'
   const posts: PostMeta[]
   export default posts
+  export const upcoming: UpcomingPost[]
   export const loaders: Record<string, () => Promise<unknown>>
 }
+
+/** Calculados no build (vite.config.ts) para não divergir entre o HTML pré-renderizado e o cliente */
+declare const __SITE_VERSION__: string
+declare const __BUILD_YEAR__: number

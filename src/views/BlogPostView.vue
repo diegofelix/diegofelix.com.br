@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
-import { useRoute } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
+import PixelRule from '@/components/PixelRule.vue'
 import { usePosts } from '@/composables/usePosts'
 import { useSeo } from '@/composables/useSeo'
-import { formatDate } from '@/utils/date'
+import { formatDate, formatWords } from '@/utils/date'
 import NotFoundView from './NotFoundView.vue'
 
 const route = useRoute()
@@ -27,39 +28,33 @@ useSeo(() => ({
 </script>
 
 <template>
-  <main v-if="post" class="p-4 md:p-8 max-w-4xl mx-auto w-full">
-    <header class="mb-8">
-      <RouterLink
-        to="/blog"
-        class="text-blue-600 hover:underline text-sm"
-      >
-        &larr; Voltar para posts
-      </RouterLink>
-      <h1 class="text-3xl text-blue-600 mt-4">
+  <main v-if="post" class="mx-auto mt-14 max-w-[42rem]">
+    <header>
+      <p class="font-mono text-[11px] tracking-[0.12em] text-blue uppercase">
+        {{ post.frontmatter.category }} ·
+        <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time> ·
+        {{ formatWords(post.frontmatter.words) }}
+      </p>
+      <h1 class="mt-4 text-[clamp(2rem,5vw,2.75rem)] leading-[1.1] font-semibold text-balance">
         {{ post.frontmatter.title }}
       </h1>
-      <div class="flex gap-4 text-sm text-slate-400 mt-2">
-        <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time>
-        <RouterLink
-          :to="`/blog?category=${encodeURIComponent(post.frontmatter.category)}`"
-          class="hover:text-blue-600"
-        >
-          {{ post.frontmatter.category }}
-        </RouterLink>
-      </div>
-      <img
-        v-if="post.frontmatter.image"
-        :src="post.frontmatter.image"
-        :alt="post.frontmatter.title"
-        class="mt-8 w-full border border-slate-100"
-        width="1200"
-        height="533"
-      />
+      <p class="mt-4 text-lg text-muted italic">{{ post.frontmatter.description }}</p>
     </header>
 
-    <article class="prose prose-slate max-w-none">
+    <div class="mt-10">
+      <PixelRule />
+    </div>
+
+    <article class="prose mt-10 max-w-none text-justify hyphens-auto" lang="pt-BR">
       <component :is="PostContent" />
     </article>
+
+    <div class="mt-16">
+      <PixelRule />
+    </div>
+    <p class="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase">
+      <RouterLink to="/blog" class="text-blue hover:underline">← Todos os escritos</RouterLink>
+    </p>
   </main>
   <NotFoundView v-else />
 </template>

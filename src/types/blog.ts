@@ -14,6 +14,14 @@ export interface PostMeta extends PostFrontmatter {
   file: string
   /** Tamanho do arquivo markdown em bytes */
   size: number
+  /** Número de palavras do texto */
+  words: number
+}
+
+export interface UpcomingPost {
+  title: string
+  slug: string
+  category: string
 }
 
 export interface Post {
