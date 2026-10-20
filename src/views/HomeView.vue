@@ -25,10 +25,10 @@ const experience = [
   },
   {
     period: '2016 — 2025',
-    role: 'Tech Leader',
+    role: 'Desenvolvedor → Tech Leader',
     company: 'Leroy Merlin',
     summary:
-      'Desenvolvi e liderei a equipe da plataforma de e-commerce, usada por milhares de clientes todos os dias.',
+      'Nove anos na plataforma de e-commerce, usada por milhares de clientes todos os dias. Três deles como Tech Leader da equipe.',
   },
   {
     period: '2011 — 2016',
@@ -43,8 +43,9 @@ const experience = [
   },
   {
     period: '2007 — 2009',
-    role: 'Técnico',
+    role: 'Técnico → Programador PHP',
     company: 'Telefonica (Vivo)',
+    summary: 'Entrei como técnico e foi lá que escrevi meu primeiro código PHP profissionalmente.',
   },
 ]
 
@@ -59,9 +60,9 @@ useSeo({ path: '/' })
     <section class="mt-10 grid gap-x-12 gap-y-12 lg:grid-cols-12">
       <div class="min-w-0 lg:col-span-4">
         <p class="dropcap text-justify hyphens-auto" lang="pt-BR">
-          Sou Diego Felix, desenvolvedor desde 2009. Passei a maior parte desse tempo do lado de trás
-          das aplicações: APIs, filas, bancos de dados e tudo o que acontece depois que alguém clica
-          em um botão.
+          Sou Diego Felix. Comecei como técnico na Telefonica, virei programador PHP por lá e desde
+          então vivo do lado de trás das aplicações: APIs, filas, bancos de dados e tudo o que
+          acontece depois que alguém clica em um botão.
         </p>
         <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
           Hoje sou Engenheiro de Software Especialista na Serasa Experian, onde lidero equipes que
@@ -79,8 +80,8 @@ useSeo({ path: '/' })
           meu trabalho é sobre detalhes assim, que ninguém vê quando funcionam.
         </p>
         <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
-          Minha principal ferramenta ainda é PHP com Laravel, mas o dia a dia também passa por Go,
-          Java, PostgreSQL, Kafka e AWS.
+          No dia a dia, trabalho com Go, Java, PostgreSQL, Kafka e AWS. PHP com Laravel ficou como a
+          linguagem que eu mais gosto de escrever.
         </p>
       </div>
 
@@ -138,8 +139,8 @@ useSeo({ path: '/' })
           <BlueprintFigure number="003" label="Checkout · sequência">
             <FigCheckout />
             <template #caption>
-              — O caminho de um pedido no e-commerce. Foram nove anos liderando a equipe dessa
-              plataforma na Leroy Merlin.
+              — O caminho de um pedido no e-commerce. Foram nove anos nessa plataforma na Leroy
+              Merlin, três deles como Tech Leader.
             </template>
           </BlueprintFigure>
         </div>

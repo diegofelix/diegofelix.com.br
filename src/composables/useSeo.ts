@@ -4,7 +4,7 @@ import { useHead } from '@unhead/vue'
 const SITE_URL = 'https://diegofelix.com.br'
 const SITE_NAME = 'Diego Felix'
 const DEFAULT_DESCRIPTION =
-  'Diego Felix, Engenheiro de Software Especialista. Backend, PHP, Laravel e liderança técnica.'
+  'Diego Felix, Engenheiro de Software Especialista. Backend, arquitetura e liderança técnica.'
 
 interface SeoOptions {
   title?: string

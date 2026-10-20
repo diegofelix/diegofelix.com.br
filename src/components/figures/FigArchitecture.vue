@@ -45,7 +45,7 @@
     <line x1="252" y1="223" x2="286" y2="295" marker-end="url(#fig001-arrow)" />
     <g v-for="y in [128, 200, 272]" :key="y">
       <rect x="290" :y="y" width="120" height="46" fill="#fff" />
-      <text x="300" :y="y + 17" class="fig-label-sm" stroke="none">API · LARAVEL</text>
+      <text x="300" :y="y + 17" class="fig-label-sm" stroke="none">API · HTTP</text>
       <rect x="300" :y="y + 26" width="60" height="5" fill="#b9c7fd" stroke="none" />
       <rect x="300" :y="y + 35" width="40" height="5" fill="#e6ebff" stroke="none" />
     </g>
