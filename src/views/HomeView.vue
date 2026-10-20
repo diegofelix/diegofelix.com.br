@@ -322,7 +322,7 @@ useSeo({ path: '/' })
           <time class="block text-xs text-slate-400 mb-1"> 2007 - 2009 </time>
 
           <!-- Título -->
-          <h3 class="text-base font-serif text-slate-600">Desenvolvedor Web · Telefonica (Vivo)</h3>
+          <h3 class="text-base font-serif text-slate-600">Técnico · Telefonica (Vivo)</h3>
         </article>
       </div>
     </section>

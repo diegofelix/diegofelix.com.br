@@ -43,8 +43,12 @@ Post content (don't repeat the title as an `# h1`, the page already renders it).
 
 ## Deploy
 
-The `Dockerfile` builds the site and serves `dist/` with nginx (`.docker/nginx.conf`).
+Production runs on a Hostinger VPS with [Coolify](https://coolify.io/), using the **Dockerfile** build pack:
+the `Dockerfile` builds the site and serves `dist/` with nginx (`.docker/nginx.conf`) on port 80, and Coolify's proxy
+handles the domain and HTTPS. Every push to `master` triggers a new deploy.
+
+To run the production image locally:
 
 ```sh
-docker compose up -d --build          # http://localhost:8080 (override with PORT=80)
+docker compose up -d --build          # http://localhost:8080 (override with PORT=...)
 ```
