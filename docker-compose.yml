@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: diegofelix-web
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:80"

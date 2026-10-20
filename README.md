@@ -1,48 +1,50 @@
-# diegofelix
+# diegofelix.com.br
 
-This template should help get you started developing with Vue 3 in Vite.
+My personal website and blog.
 
-## Recommended IDE Setup
+Built with [Vue 3](https://vuejs.org/), [Vite](https://vite.dev/), [Tailwind CSS 4](https://tailwindcss.com/) and
+[vite-ssg](https://github.com/antfu-collective/vite-ssg). Every page is prerendered to static HTML at build time and
+served by nginx.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Development
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Requires Node `^20.19.0 || >=22.12.0`.
 
 ```sh
 npm install
+npm run dev       # dev server with hot reload
+npm run build     # type-check + prerender into dist/
+npm run preview   # serve dist/ locally
+npm run lint      # oxlint + eslint
 ```
 
-### Compile and Hot-Reload for Development
+## Writing a post
 
-```sh
-npm run dev
+Create a markdown file in `src/content/posts/` named `YYYY-MM-DD-slug.md`:
+
+```md
+---
+title: "Post title"
+slug: "post-slug"            # optional, defaults to the file name without the date
+date: "2026-10-20"
+category: "Backend"
+tags: ["php", "laravel"]
+description: "Shown in the post list, meta description and RSS."
+image: "/images/posts/post-slug.jpg"   # optional, used as header and og:image
+published: true
+---
+
+Post content (don't repeat the title as an `# h1`, the page already renders it).
 ```
 
-### Type-Check, Compile and Minify for Production
+- Only posts with `published: true` are listed, prerendered and bundled. Drafts never reach `dist/`.
+- Post images go in `public/images/posts/` (keep them around 1200px wide and under 200 KB).
+- Sitemap (`/sitemap.xml`) and RSS feed (`/rss.xml`) are generated automatically from the frontmatter (`build/posts.ts`).
+
+## Deploy
+
+The `Dockerfile` builds the site and serves `dist/` with nginx (`.docker/nginx.conf`).
 
 ```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+docker compose up -d --build          # http://localhost:8080 (override with PORT=80)
 ```
