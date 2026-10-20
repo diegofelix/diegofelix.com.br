@@ -113,7 +113,6 @@ export function postsPlugin(): Plugin {
     },
     load(id) {
       if (id !== RESOLVED_ID) return
-      this.addWatchFile(POSTS_DIR)
       const posts = loadPosts()
       // Só posts publicados ganham um import dinâmico, então rascunhos nunca entram no bundle
       const loaders = posts
@@ -124,11 +123,18 @@ export function postsPlugin(): Plugin {
         .join('\n')
       return `export default ${JSON.stringify(posts)}\nexport const loaders = {\n${loaders}\n}`
     },
-    handleHotUpdate({ file, server }) {
-      if (file.startsWith(POSTS_DIR)) {
+    configureServer(server) {
+      // Recarrega a lista quando um post é criado, editado ou removido
+      const refresh = (file: string) => {
+        if (!file.startsWith(POSTS_DIR) || !file.endsWith('.md')) return
         const mod = server.moduleGraph.getModuleById(RESOLVED_ID)
         if (mod) server.moduleGraph.invalidateModule(mod)
+        server.ws.send({ type: 'full-reload' })
       }
+      server.watcher.add(POSTS_DIR)
+      server.watcher.on('add', refresh)
+      server.watcher.on('change', refresh)
+      server.watcher.on('unlink', refresh)
     },
     generateBundle(options) {
       // vite-ssg roda um build de client e um de server; emite só no client
