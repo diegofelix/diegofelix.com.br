@@ -1,21 +1,28 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { usePosts } from '@/composables/usePosts'
+import { useSeo } from '@/composables/useSeo'
+import { formatDate } from '@/utils/date'
 import { computed } from 'vue'
+import profilePicture from '@/assets/profile-picture.webp'
 
 const { posts } = usePosts()
 
 const recentPosts = computed(() => posts.slice(0, 3))
 
+const yearsOfExperience = new Date().getFullYear() - 2009
+
 const formatSlug = (slug: string) => {
   return slug.replace(/-/g, '_')
 }
 
-const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr)
-  const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
-  return `${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`
+const formatSize = (bytes: number) => {
+  return `${(bytes / 1024).toFixed(1)}kb`
 }
+
+const totalSize = computed(() => formatSize(posts.reduce((sum, post) => sum + post.frontmatter.size, 0)))
+
+useSeo({ path: '/' })
 </script>
 
 <template>
@@ -25,7 +32,9 @@ const formatDate = (dateStr: string) => {
       <!-- Foto de Perfil -->
       <div class="object-cover p-2 shadow-lg shadow-slate-200 flex-shrink-0">
         <img
-          src="../assets/profile-picture.png"
+          :src="profilePicture"
+          width="176"
+          height="264"
           alt="Foto de perfil de Diego Felix"
           class="w-32 md:max-w-44 grayscale hover:grayscale-0 transition duration-500 hover:sepia"
         />
@@ -70,7 +79,7 @@ const formatDate = (dateStr: string) => {
               <rect width="4" height="12" x="2" y="9" />
               <circle cx="4" cy="4" r="2" />
             </svg>
-            Ver Currículo
+            LinkedIn
           </a>
           <a
             href="https://github.com/diegofelix"
@@ -106,7 +115,7 @@ const formatDate = (dateStr: string) => {
     <div class="grid grid-cols-2 md:grid-cols-4 divide-slate-50 divide-x border border-slate-50 grow mt-12 md:mt-28">
       <div class="flex flex-col gap-3 p-4 py-8">
         <p class="text-slate-400 uppercase text-xs">Experiência</p>
-        <p class="font-bold uppercase text-base">16_ANOS</p>
+        <p class="font-bold uppercase text-base">{{ yearsOfExperience }}_ANOS</p>
       </div>
       <div class="flex flex-col gap-3 p-4 py-8">
         <p class="text-slate-400 uppercase text-xs">Status</p>
@@ -144,7 +153,7 @@ const formatDate = (dateStr: string) => {
         </h4>
       </div>
       <div>
-        <p class="text-slate-400 text-xs" aria-hidden="true">Total: 48.2kb</p>
+        <p class="text-slate-400 text-xs" aria-hidden="true">Total: {{ totalSize }}</p>
       </div>
     </div>
     <div class="border border-slate-200 mt-8">
@@ -164,12 +173,12 @@ const formatDate = (dateStr: string) => {
           class="group hover:bg-slate-50 flex gap-4 md:gap-20 justify-between items-center border-b p-2.5 border-b-slate-50"
         >
           <span class="text-slate-200 hidden md:inline">-rw-r--r--</span>
-          <h4 class="grow truncate text-sm md:text-base">
+          <h4 class="grow min-w-0 truncate text-sm md:text-base">
             {{ formatSlug(post.slug) }}<span class="text-blue-600">.md</span>
           </h4>
-          <span class="text-slate-200 hidden sm:inline">{{ Math.floor(Math.random() * 20 + 5) }}.{{ Math.floor(Math.random() * 9) }}kb</span>
+          <span class="text-slate-200 hidden sm:inline">{{ formatSize(post.frontmatter.size) }}</span>
           <span class="group-hover:text-blue-600 text-slate-200 uppercase text-xs md:text-base whitespace-nowrap">
-            {{ formatDate(post.frontmatter.date) }}
+            <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time>
           </span>
         </RouterLink>
       </div>

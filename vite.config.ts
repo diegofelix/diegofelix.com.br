@@ -1,3 +1,5 @@
+/// <reference types="vite-ssg" />
+
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -6,6 +8,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import Shiki from '@shikijs/markdown-it'
+import { postsPlugin, ssgRoutes } from './build/posts'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -23,6 +26,7 @@ export default defineConfig({
         )
       },
     }),
+    postsPlugin(),
     vueDevTools(),
     tailwindcss(),
   ],
@@ -30,5 +34,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+  },
+  ssgOptions: {
+    script: 'async',
+    formatting: 'minify',
+    dirStyle: 'nested',
+    includedRoutes: () => ssgRoutes(),
   },
 })

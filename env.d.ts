@@ -7,3 +7,10 @@ declare module '*.md' {
   export default component
   export const frontmatter: Record<string, unknown>
 }
+
+declare module 'virtual:posts' {
+  import type { PostMeta } from '@/types/blog'
+  const posts: PostMeta[]
+  export default posts
+  export const loaders: Record<string, () => Promise<unknown>>
+}

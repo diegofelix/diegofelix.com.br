@@ -9,8 +9,15 @@ export interface PostFrontmatter {
   published: boolean
 }
 
+export interface PostMeta extends PostFrontmatter {
+  /** Nome do arquivo em src/content/posts */
+  file: string
+  /** Tamanho do arquivo markdown em bytes */
+  size: number
+}
+
 export interface Post {
-  frontmatter: PostFrontmatter
-  component: () => Promise<typeof import('*.md')>
+  frontmatter: PostMeta
+  component: () => Promise<unknown>
   slug: string
 }

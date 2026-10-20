@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import NavitationMenu from './components/NavigationMenu.vue'
+import NavigationMenu from './components/NavigationMenu.vue'
 import BlogCategoriesMenu from './components/BlogCategoriesMenu.vue'
 
 const route = useRoute()
@@ -84,7 +84,7 @@ const version = () => {
         v-if="isMobileMenuOpen"
         class="lg:hidden fixed inset-0 top-[57px] bg-white z-40 p-6 overflow-y-auto font-mono"
       >
-        <NavitationMenu />
+        <NavigationMenu />
         <BlogCategoriesMenu />
         <div class="mt-8 text-[10px] text-slate-400">
           <p>© {{ new Date().getFullYear() }} DEV_LOG</p>
@@ -102,19 +102,21 @@ const version = () => {
         </h1>
 
         <!-- Navigation Menu -->
-        <NavitationMenu />
+        <NavigationMenu />
 
         <!-- Blog Categories Menu -->
         <BlogCategoriesMenu />
 
         <!-- Footer -->
-        <div class="absolute bottom-8 left-8 text-[10px] text-slate-400 dark:text-slate-600">
+        <div class="absolute bottom-8 left-8 text-[10px] text-slate-400">
           <p>© {{ new Date().getFullYear() }} DEV_LOG</p>
           <p>{{ version() }}</p>
         </div>
       </aside>
 
-      <RouterView />
+      <div class="flex-1 min-w-0">
+        <RouterView />
+      </div>
     </div>
   </div>
 </template>

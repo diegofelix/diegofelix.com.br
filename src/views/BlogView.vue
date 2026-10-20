@@ -1,12 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
 import { usePosts } from '@/composables/usePosts'
-import { computed } from 'vue'
+import { useSeo } from '@/composables/useSeo'
+import { formatDate } from '@/utils/date'
+import { computed, onMounted, ref } from 'vue'
 
 const route = useRoute()
 const { posts, getPostsByCategory } = usePosts()
 
-const activeCategory = computed(() => (route.query.category as string) || null)
+// A página é pré-renderizada sem query string; aplica o filtro só após hidratar
+const isMounted = ref(false)
+onMounted(() => {
+  isMounted.value = true
+})
+
+const activeCategory = computed(() =>
+  isMounted.value ? (route.query.category as string) || null : null,
+)
 
 const filteredPosts = computed(() => {
   if (activeCategory.value) {
@@ -14,10 +24,16 @@ const filteredPosts = computed(() => {
   }
   return posts
 })
+
+useSeo({
+  title: 'Blog',
+  description: 'Posts de Diego Felix sobre engenharia de software, liderança e finanças.',
+  path: '/blog',
+})
 </script>
 
 <template>
-  <main class="p-4 md:p-8 max-w-5xl mx-auto">
+  <main class="p-4 md:p-8 max-w-5xl mx-auto w-full">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
       <h1 class="text-3xl text-blue-600">
         Blog
@@ -51,7 +67,7 @@ const filteredPosts = computed(() => {
             {{ post.frontmatter.description }}
           </p>
           <div class="flex flex-wrap gap-4 text-xs text-slate-500">
-            <time>{{ post.frontmatter.date }}</time>
+            <time :datetime="post.frontmatter.date">{{ formatDate(post.frontmatter.date) }}</time>
             <span class="text-blue-600">{{ post.frontmatter.category }}</span>
           </div>
         </RouterLink>
