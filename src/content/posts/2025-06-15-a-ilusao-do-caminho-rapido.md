@@ -54,4 +54,37 @@ Ele mostrou também que no mercado americano, mais de 90% dos fundos de ações 
 
 Existem diversos motivos de um fundo de ações não conseguir bater o mercado, eu acredito que o principal deles seja os próprios investidores desse fundo. Muitas vezes, os investidores entram e saem do fundo em momentos ruins, o que acaba prejudicando o desempenho do fundo como um todo, então não atribuo ao gestor toda a culpa.
 
-Inclusive é por isso que eu acredito que os fundos da Alaska por exemplo, colocam um prazo tao alto de saque, justamente para desestimular saques em momentos ruins.
+Inclusive é por isso que eu acredito que os fundos da Alaska por exemplo, colocam um prazo tão alto de saque, justamente para desestimular saques em momentos ruins e também é por isso que eu parei de seguir carteiras e fundos de ações.
+
+## Como eu invisto hoje?
+
+Depois de ler o livro citado acima, eu comecei a comparar o índice bovespa contra fundos de ações e carteiras recomendadas e comecei a perceber que de fato, a maioria das carteiras e dos fundos de ações perdem para o índice em janelas maiores.
+
+Outra coisa que eu percebi é que não dá pra comparar o mercado brasileiro com o mercado americano (do autor do livro) porque comparado a ele, nós estamos engatinhando ainda, então, tem muito gestor/investidor que consegue bater o índice consistentemente por conta do nosso índice bovespa ser muito "fraco". Então, se você tem tempo para estudar, a estratégia de Buy and Hold funciona muito bem aqui no Brasil.
+
+Minha estratégia é bem simples de investimentos. Hoje, eu gasto cerca de 2 horas por mês para rebalanceá-la.
+
+
+### 10% Fundos imobiliários
+Aqui eu faço stock picking porque o ETC XFIX é muito ruim. Outro motivo é a sensação de receber dividendos todos os meses dá um gostinho e vontade de investir mais. Pra mim, ver o dinheiro rendendo, mesmo que um pouquinho todos os meses é o meu maior motivador.
+
+
+### 5% Criptomoedas
+Eu tenho equilibrar aqui entre bitcoin e etherium, mas compro algumas porcarias pra brincar, sempre saí no prejuízio, mas vai que um dia eu ganho na mega sena das criptos?
+
+### 30% Renda fixa
+Aqui a maoiria é tesouro direto IPCA e CDBs anexados ao CDI. Sempre pensando a longo prazo.
+
+### 30% Ações Internacionais
+Até esse ano, era 100% IVVB11. O Mercado americano é o maior do mundo, mas isso está mudando aos poucos, portanto, comecei a investir em um ETF global chamado WRlD11 (que também investe nos EUA), então, minha ideia é deixar 70/30 nesses dois ETFs.
+
+### 25% Ações Nacionais
+Se você colocar tudo em bova11 vai ganhar de 90% do mercado. Mas como eu falei anteriormente, o bova11 não é lá o melhor índice que represente o mercado brasileiro, tem bastante sujeira lá, então eu invisto agora no NSDV11 que segue um índice de empresas pagadoras de dividendos, esse ETF é bom porque normalmente as empresas nele são muito bem consolidadas no mercado. O que eu perco com isso? Volatilidade, porém, eu penso a longo prazo, então, não oscilar na minha opinião é pior do que crescer menos do que a maioria. Ou seja, eu prefiro perder pouco e ganhar pouco, do que perder muito e ganhar muito.
+
+Se você tem 100 reais investidos e perde 50% em uma ação. Para que você volte a ter 100%, você teria que ter um ganho de 100% para que ela volte a 100, e não 50%. Por esse motivo, é melhor perder pouco do que ganhar muito.
+
+## Resumo
+
+Se ainda assim você achou complicado, posso entrar mais no detalhe em novos posts mais pra frente, mas como eu falei, eu levo menos de 2 horas para rebalancear a carteira.
+
+Espero ter ajudado vocês pessoal!
