@@ -19,3 +19,5 @@ declare module 'virtual:posts' {
 /** Calculados no build (vite.config.ts) para não divergir entre o HTML pré-renderizado e o cliente */
 declare const __SITE_VERSION__: string
 declare const __BUILD_YEAR__: number
+/** Espelha BLOG_ENABLED de build/site.ts */
+declare const __BLOG_ENABLED__: boolean

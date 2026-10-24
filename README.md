@@ -18,6 +18,12 @@ npm run preview   # serve dist/ locally
 npm run lint      # oxlint + eslint
 ```
 
+## Blog on/off
+
+The blog is currently **off**: the site launches as a portfolio only. Set `BLOG_ENABLED` in
+`build/site.ts` to `true` to bring back the menu link, the writing index on the home page, the `/blog`
+pages, the RSS feed and the sitemap entries. While it is off, no post (or draft) is included in the build.
+
 ## Writing a post
 
 Create a markdown file in `src/content/posts/` named `YYYY-MM-DD-slug.md`:

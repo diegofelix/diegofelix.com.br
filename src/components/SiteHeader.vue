@@ -6,8 +6,10 @@ import PixelRule from './PixelRule.vue'
 const route = useRoute()
 const isHome = computed(() => route.path === '/')
 
+const blogEnabled = __BLOG_ENABLED__
+
 const links = [
-  { to: '/blog', label: 'Escritos' },
+  ...(blogEnabled ? [{ to: '/blog', label: 'Escritos' }] : []),
   { to: '/#experiencia', label: 'Experiência' },
   { to: '/#contato', label: 'Contato' },
 ]
@@ -29,7 +31,9 @@ const isCurrent = (to: string) => !to.startsWith('/#') && route.path.startsWith(
       <div class="md:text-right">
         <p v-if="isHome" class="leading-snug">
           Engenheiro de Software Especialista.<br />
-          <span class="font-semibold">Backend, liderança e algumas notas sobre finanças.</span>
+          <span class="font-semibold">
+            {{ blogEnabled ? 'Backend, liderança e algumas notas sobre finanças.' : 'Backend, arquitetura e liderança técnica.' }}
+          </span>
         </p>
         <nav aria-label="Principal" :class="{ 'mt-3': isHome }">
           <ul class="flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] tracking-[0.12em] uppercase md:justify-end">

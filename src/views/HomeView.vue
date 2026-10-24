@@ -50,6 +50,7 @@ const experience = [
 ]
 
 const buildYear = String(__BUILD_YEAR__)
+const blogEnabled = __BLOG_ENABLED__
 
 useSeo({ path: '/' })
 </script>
@@ -104,10 +105,14 @@ useSeo({ path: '/' })
           />
           <div>
             <p class="font-semibold">Se você chegou até aqui, provavelmente também gosta de saber como as coisas funcionam por dentro.</p>
-            <p class="mt-4 text-justify hyphens-auto" lang="pt-BR">
+            <p v-if="blogEnabled" class="mt-4 text-justify hyphens-auto" lang="pt-BR">
               Este site é onde eu guardo o que aprendi: notas sobre engenharia, liderança de times e,
               de vez em quando, finanças. Sem tutoriais apressados, só o que eu gostaria de ter lido
               antes.
+            </p>
+            <p v-else class="mt-4 text-justify hyphens-auto" lang="pt-BR">
+              Aqui está um pouco da minha trajetória e do tipo de problema que eu gosto de resolver.
+              Se quiser trocar uma ideia, os caminhos estão logo abaixo.
             </p>
             <p class="mt-6 flex flex-wrap gap-3 font-mono text-[11px] tracking-[0.1em] uppercase">
               <a href="https://github.com/diegofelix" class="border border-ink px-3 py-1.5 hover:bg-blue-100">GitHub</a>
@@ -120,12 +125,14 @@ useSeo({ path: '/' })
     </section>
 
     <!-- Escritos -->
-    <div class="mt-24">
-      <PixelRule label="Escritos" />
-    </div>
-    <div class="mt-16">
-      <PostIndex />
-    </div>
+    <template v-if="blogEnabled">
+      <div class="mt-24">
+        <PixelRule label="Escritos" />
+      </div>
+      <div class="mt-16">
+        <PostIndex />
+      </div>
+    </template>
 
     <!-- Experiência -->
     <div class="mt-24">
@@ -177,7 +184,11 @@ useSeo({ path: '/' })
     <section id="contato" class="mt-20 scroll-mt-8 text-center">
       <h2 class="font-pixel text-[clamp(1.75rem,6vw,3.5rem)] leading-none text-blue">Vamos conversar.</h2>
       <p class="mx-auto mt-6 max-w-md text-muted">
-        Sobre backend, liderança técnica, uma oportunidade ou um post que você leu aqui.
+        {{
+          blogEnabled
+            ? 'Sobre backend, liderança técnica, uma oportunidade ou um post que você leu aqui.'
+            : 'Sobre backend, liderança técnica ou uma oportunidade.'
+        }}
       </p>
       <a
         href="mailto:contato@diegofelix.com.br"

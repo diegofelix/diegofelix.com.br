@@ -9,6 +9,7 @@ import tailwindcss from '@tailwindcss/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import Shiki from '@shikijs/markdown-it'
 import { postsPlugin, ssgRoutes } from './build/posts'
+import { BLOG_ENABLED } from './build/site'
 
 // Versão do site = idade/10 + mês do deploy (ex.: 3.9.10-stable)
 const now = new Date()
@@ -19,6 +20,7 @@ export default defineConfig({
   define: {
     __SITE_VERSION__: JSON.stringify(siteVersion),
     __BUILD_YEAR__: JSON.stringify(now.getFullYear()),
+    __BLOG_ENABLED__: JSON.stringify(BLOG_ENABLED),
   },
   plugins: [
     vue({

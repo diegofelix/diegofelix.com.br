@@ -2,8 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 import type { Plugin } from 'vite'
-
-export const SITE_URL = 'https://diegofelix.com.br'
+import { BLOG_ENABLED, SITE_URL } from './site'
 
 export interface PostMeta {
   title: string
@@ -73,6 +72,7 @@ const escapeXml = (str: string) =>
   )
 
 export function postRoutes(): string[] {
+  if (!BLOG_ENABLED) return ['/']
   return ['/', '/blog', ...loadPosts().map((post) => `/blog/${post.slug}`)]
 }
 
@@ -136,6 +136,7 @@ export function postsPlugin(): Plugin {
     },
     load(id) {
       if (id !== RESOLVED_ID) return
+      if (!BLOG_ENABLED) return 'export default []\nexport const upcoming = []\nexport const loaders = {}'
       const posts = loadPosts()
       // Só posts publicados ganham um import dinâmico, então rascunhos nunca entram no bundle
       const loaders = posts
@@ -167,7 +168,7 @@ export function postsPlugin(): Plugin {
       // vite-ssg roda um build de client e um de server; emite só no client
       if (options.format !== 'es' || this.environment?.config.build.ssr) return
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: buildSitemap() })
-      this.emitFile({ type: 'asset', fileName: 'rss.xml', source: buildRss() })
+      if (BLOG_ENABLED) this.emitFile({ type: 'asset', fileName: 'rss.xml', source: buildRss() })
     },
   }
 }

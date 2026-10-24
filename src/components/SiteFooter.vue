@@ -3,6 +3,7 @@ import PixelRule from './PixelRule.vue'
 
 const year = __BUILD_YEAR__
 const version = __SITE_VERSION__
+const blogEnabled = __BLOG_ENABLED__
 </script>
 
 <template>
@@ -15,7 +16,7 @@ const version = __SITE_VERSION__
       <p class="flex gap-4">
         <a href="https://github.com/diegofelix" class="hover:text-blue hover:underline">GitHub</a>
         <a href="https://linkedin.com/in/diegoflx" class="hover:text-blue hover:underline">LinkedIn</a>
-        <a href="/rss.xml" class="hover:text-blue hover:underline">RSS</a>
+        <a v-if="blogEnabled" href="/rss.xml" class="hover:text-blue hover:underline">RSS</a>
       </p>
     </div>
   </footer>

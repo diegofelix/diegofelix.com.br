@@ -7,16 +7,20 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     component: HomeView,
   },
-  {
-    path: '/blog',
-    name: 'blog',
-    component: () => import('../views/BlogView.vue'),
-  },
-  {
-    path: '/blog/:slug',
-    name: 'blog-post',
-    component: () => import('../views/BlogPostView.vue'),
-  },
+  ...(__BLOG_ENABLED__
+    ? [
+        {
+          path: '/blog',
+          name: 'blog',
+          component: () => import('../views/BlogView.vue'),
+        },
+        {
+          path: '/blog/:slug',
+          name: 'blog-post',
+          component: () => import('../views/BlogPostView.vue'),
+        },
+      ]
+    : []),
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
