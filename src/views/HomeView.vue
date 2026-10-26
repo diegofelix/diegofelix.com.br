@@ -2,11 +2,8 @@
 import BlueprintFigure from '@/components/BlueprintFigure.vue'
 import PixelRule from '@/components/PixelRule.vue'
 import PostIndex from '@/components/PostIndex.vue'
-import FigArchitecture from '@/components/figures/FigArchitecture.vue'
-import FigBTree from '@/components/figures/FigBTree.vue'
-import FigCheckout from '@/components/figures/FigCheckout.vue'
+import FigProfile from '@/components/figures/FigProfile.vue'
 import { useSeo } from '@/composables/useSeo'
-import profilePicture from '@/assets/profile-picture.webp'
 
 const experience = [
   {
@@ -57,7 +54,7 @@ useSeo({ path: '/' })
 
 <template>
   <main>
-    <!-- Abertura: texto à esquerda, figura principal à direita -->
+    <!-- Abertura: texto à esquerda, ficha técnica à direita -->
     <section class="mt-10 grid gap-x-12 gap-y-12 lg:grid-cols-12">
       <div class="min-w-0 lg:col-span-4">
         <p class="dropcap text-justify hyphens-auto" lang="pt-BR">
@@ -67,60 +64,34 @@ useSeo({ path: '/' })
         </p>
         <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
           Hoje sou Engenheiro de Software Especialista na Serasa Experian, onde lidero equipes que
-          constroem plataformas escaláveis em um ambiente regulado e intensivo em dados.
+          constroem plataformas escaláveis em um ambiente regulado e intensivo em dados. PHP com
+          Laravel ficou como a linguagem que eu mais gosto de escrever.
         </p>
 
-        <div class="mt-10">
-          <BlueprintFigure number="002" label="Índice B-tree">
-            <FigBTree />
-          </BlueprintFigure>
-        </div>
-
-        <p class="mt-8 text-justify hyphens-auto" lang="pt-BR">
-          Um índice é o motivo de uma busca entre milhões de linhas levar milissegundos. Boa parte do
-          meu trabalho é sobre detalhes assim, que ninguém vê quando funcionam.
+        <p class="mt-8 font-semibold">Se você chegou até aqui, provavelmente também gosta de saber como as coisas funcionam por dentro.</p>
+        <p v-if="blogEnabled" class="mt-4 text-justify hyphens-auto" lang="pt-BR">
+          Este site é onde eu guardo o que aprendi: notas sobre engenharia, liderança de times e,
+          de vez em quando, finanças. Sem tutoriais apressados, só o que eu gostaria de ter lido
+          antes.
         </p>
-        <p class="mt-5 text-justify hyphens-auto" lang="pt-BR">
-          No dia a dia, trabalho com Go, Java, PostgreSQL, Kafka e AWS. PHP com Laravel ficou como a
-          linguagem que eu mais gosto de escrever.
+        <p v-else class="mt-4 text-justify hyphens-auto" lang="pt-BR">
+          Aqui está um pouco da minha trajetória e do tipo de problema que eu gosto de resolver.
+          Se quiser trocar uma ideia, os caminhos estão logo abaixo.
+        </p>
+        <p class="mt-6 flex flex-wrap gap-3 font-mono text-[11px] tracking-[0.1em] uppercase">
+          <a href="https://github.com/diegofelix" class="border border-ink px-3 py-1.5 hover:bg-blue-100">GitHub</a>
+          <a href="https://linkedin.com/in/diegoflx" class="border border-ink px-3 py-1.5 hover:bg-blue-100">LinkedIn</a>
+          <a href="mailto:contato@diegofelix.com.br" class="border border-ink px-3 py-1.5 hover:bg-blue-100">E-mail</a>
         </p>
       </div>
 
       <div class="min-w-0 lg:col-span-8">
-        <BlueprintFigure number="001" label="Arquitetura backend" :note="buildYear">
-          <FigArchitecture />
+        <BlueprintFigure number="001" label="Ficha técnica" :note="buildYear">
+          <FigProfile />
           <template #caption>
-            — Uma compra atravessando um sistema típico dos que eu ajudo a construir: balanceador,
-            APIs, cache, fila de eventos, workers e o banco de dados como fonte da verdade.
+            — Especificação resumida. Os detalhes de cada versão estão no changelog abaixo.
           </template>
         </BlueprintFigure>
-
-        <div class="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
-          <img
-            :src="profilePicture"
-            alt="Foto de Diego Felix"
-            width="120"
-            height="180"
-            class="w-28 border border-blue-100 bg-white p-1.5 grayscale sm:w-32"
-          />
-          <div>
-            <p class="font-semibold">Se você chegou até aqui, provavelmente também gosta de saber como as coisas funcionam por dentro.</p>
-            <p v-if="blogEnabled" class="mt-4 text-justify hyphens-auto" lang="pt-BR">
-              Este site é onde eu guardo o que aprendi: notas sobre engenharia, liderança de times e,
-              de vez em quando, finanças. Sem tutoriais apressados, só o que eu gostaria de ter lido
-              antes.
-            </p>
-            <p v-else class="mt-4 text-justify hyphens-auto" lang="pt-BR">
-              Aqui está um pouco da minha trajetória e do tipo de problema que eu gosto de resolver.
-              Se quiser trocar uma ideia, os caminhos estão logo abaixo.
-            </p>
-            <p class="mt-6 flex flex-wrap gap-3 font-mono text-[11px] tracking-[0.1em] uppercase">
-              <a href="https://github.com/diegofelix" class="border border-ink px-3 py-1.5 hover:bg-blue-100">GitHub</a>
-              <a href="https://linkedin.com/in/diegoflx" class="border border-ink px-3 py-1.5 hover:bg-blue-100">LinkedIn</a>
-              <a href="mailto:contato@diegofelix.com.br" class="border border-ink px-3 py-1.5 hover:bg-blue-100">E-mail</a>
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -139,18 +110,9 @@ useSeo({ path: '/' })
       <PixelRule label="Experiência" />
     </div>
     <section id="experiencia" class="mt-16 grid scroll-mt-8 gap-x-12 gap-y-12 lg:grid-cols-12">
-      <div class="min-w-0 lg:col-span-4">
+      <div class="min-w-0 lg:sticky lg:top-8 lg:col-span-4 lg:self-start">
         <h2 class="text-xl leading-none">Changelog.</h2>
         <p class="mt-4 text-muted">Da versão atual para a primeira, como todo bom changelog.</p>
-        <div class="mt-10">
-          <BlueprintFigure number="003" label="Checkout · sequência">
-            <FigCheckout />
-            <template #caption>
-              — O caminho de um pedido no e-commerce. Foram nove anos nessa plataforma na Leroy
-              Merlin, três deles como Tech Leader.
-            </template>
-          </BlueprintFigure>
-        </div>
       </div>
 
       <ol class="min-w-0 lg:col-span-8">
